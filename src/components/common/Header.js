@@ -50,13 +50,15 @@ const Header = () => (
         {/* <!-- Hero content: will be in the middle --> */}
         <div className="hero-body">
             <div className="container">
-                <div className="columns is-desktop is-vcentered">
+                <div className="columns is-desktop is-vcentered is-gapless">
                     <div className="column has-text-centered is-hidden-mobile">
                         <figure className="image" style={{ marginBottom: `48px` }}>
                             <img src={workChatImg} alt="Work Chat Erdt Image"/>
                         </figure>
                         <h5 className="title is-5 is-spaced">Todos son bienvenidos a unirse y contribuir</h5>
                         <h6 className="subtitle is-6">Todos pueden contribuir a tu campaña abierta, lo único que necesitas es personas que crean en tu misión</h6>
+                    </div>
+                    <div className="column is-one-fifth">
                     </div>
                     <div className="column">
                         <h1 className="title is-1">Crea una campaña colaborativa</h1>
