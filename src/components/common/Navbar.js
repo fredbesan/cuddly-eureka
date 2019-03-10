@@ -1,66 +1,41 @@
 import React from 'react'
-import { FaGithub } from 'react-icons/fa'
+import hashmeOrgLogo from '../../images/logo.svg'
 
 import '../../styles/styles.scss'
 // import bulmaLogo from '../images/bulma-logo.png'
 
 const Navbar = () => (
     <nav className="navbar" role="navigation" aria-label="main navigation">
-        <div className="navbar-brand">
-            <a className="navbar-item" href="https://bulma.io">
-                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
-            </a>
-
-            <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div id="navbarBasicExample" className="navbar-menu">
-            <div className="navbar-start">
-                <a className="navbar-item">
-                    Home
+        <div className="container">
+            <div className="navbar-brand">
+                <a href="/" className="navbar-item">
+                    <img src={hashmeOrgLogo} alt="Logo"/>
                 </a>
-
-                <a className="navbar-item">
-                    Documentation
-                </a>
-
-                <div className="navbar-item has-dropdown is-hoverable">
-                    <a className="navbar-link">
-                    More
-                    </a>
-
-                    <div className="navbar-dropdown">
-                        <a className="navbar-item">
-                            About
-                        </a>
-                        <a className="navbar-item">
-                            Jobs
-                        </a>
-                        <a className="navbar-item">
-                            Contact
-                        </a>
-                        <hr className="navbar-divider"/>
-                        <a className="navbar-item">
-                            Report an issue
-                        </a>
-                    </div>
-                </div>
+                <span className="navbar-burger burger" data-target="navbarMenuHeroC">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
             </div>
-
-            <div className="navbar-end">
-                <div className="navbar-item">
-                    <div className="buttons">
-                        <a className="button is-primary">
-                            <strong>Sign up</strong>
+            <div id="navbarMenuHeroC" className="navbar-menu">
+                <div className="navbar-end">
+                    <a href="/discover" className="navbar-item has-text-grey">
+                        Descubre
+                    </a>
+                    <a className="navbar-item has-text-grey">
+                        Cómo funciona
+                    </a>
+                    <a className="navbar-item has-text-grey">
+                        Casos
+                    </a>
+                    <a className="navbar-item has-text-grey">
+                        Blog
+                    </a>
+                    <span className="navbar-item">
+                        <a className="button is-secondary is-rounded is-outlined">
+                            <span>Ingresar</span>
                         </a>
-                        <a className="button is-light">
-                            Log in
-                        </a>
-                    </div>
+                    </span>
                 </div>
             </div>
         </div>

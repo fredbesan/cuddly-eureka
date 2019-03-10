@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { Header } from '.'
+import { Navbar } from '.'
 // Styles
 import '../../styles/styles.scss'
 
@@ -23,7 +23,8 @@ const DefaultLayout = ({ data, children, bodyClass }) => {
             <html lang={site.lang} />
             <body className={bodyClass} />
         </Helmet>
-        <Header/>
+        <Navbar/>
+        { children }
     </>
     )
 }

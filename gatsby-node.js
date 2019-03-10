@@ -11,76 +11,69 @@ const { paginate } = require(`gatsby-awesome-pagination`)
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions
 
-    // /**
-    // * Issues
-    // */
-    // const createIssues = new Promise((resolve, reject) => {
-    //     const issueTemplate = path.resolve(`./src/templates/issue.js`)
-    //     const indexTemplate = path.resolve(`./src/templates/index.js`)
-    //     resolve(
-    //         graphql(`
-    //         {
-    //             allGhostPost(
-    //                 sort: {order: ASC, fields: published_at},
-    //                 filter: {
-    //                     slug: {ne: "data-schema"}
-    //                     primary_tag: {name: {eq: "issue"}}
-    //                 }
-    //             ) {
-    //                 edges {
-    //                     node {
-    //                         slug
-    //                     }
-    //                 }
-    //             }
-    //         }`
-    //         ).then((result) => {
-    //             if (result.errors) {
-    //                 return reject(result.errors)
-    //             }
+    /**
+    * Issues
+    */
+    const createIssues = new Promise((resolve, reject) => {
+        const issueTemplate = path.resolve(`./src/templates/issue.js`)
+        const discoverTemplate = path.resolve(`./src/templates/discover.js`)
+        resolve(
+            graphql(`
+            {
+                allGhostPost(
+                    sort: {order: ASC, fields: published_at},
+                    filter: {
+                        slug: {ne: "data-schema"}
+                        primary_tag: {name: {eq: "issue"}}
+                    }
+                ) {
+                    edges {
+                        node {
+                            slug
+                        }
+                    }
+                }
+            }`
+            ).then((result) => {
+                if (result.errors) {
+                    return reject(result.errors)
+                }
 
-    //             if (!result.data.allGhostPost) {
-    //                 return resolve()
-    //             }
+                if (!result.data.allGhostPost) {
+                    return resolve()
+                }
 
-    //             const items = result.data.allGhostPost.edges
+                const items = result.data.allGhostPost.edges
 
-    //             _.forEach(items, ({ node }) => {
-    //                 // This part here defines, that our posts will use
-    //                 // a `/:slug/` permalink.
-    //                 node.url = `/issues/${node.slug}/`
+                _.forEach(items, ({ node }) => {
+                    // This part here defines, that our posts will use
+                    // a `/:slug/` permalink.
+                    node.url = `/${node.slug}/`
 
-    //                 createPage({
-    //                     path: node.url,
-    //                     component: path.resolve(issueTemplate),
-    //                     isHome: false,
-    //                     context: {
-    //                         // Data passed to context is available
-    //                         // in page queries as GraphQL variables.
-    //                         slug: node.slug,
-    //                     },
-    //                 })
-    //             })
+                    createPage({
+                        path: node.url,
+                        component: path.resolve(issueTemplate),
+                        isHome: false,
+                        context: {
+                            // Data passed to context is available
+                            // in page queries as GraphQL variables.
+                            slug: node.slug,
+                        },
+                    })
+                })
+                // Pagination for posts, e.g., /, /page/2, /page/3
+                paginate({
+                    createPage,
+                    items: items,
+                    itemsPerPage: config.postsPerPage,
+                    component: discoverTemplate,
+                    pathPrefix: `/discover`,
+                })
 
-    //             // Pagination for posts, e.g., /, /page/2, /page/3
-    //             paginate({
-    //                 createPage,
-    //                 items: items,
-    //                 itemsPerPage: config.postsPerPage,
-    //                 component: indexTemplate,
-    //                 pathPrefix: ({ pageNumber }) => {
-    //                     if (pageNumber === 0) {
-    //                         return `/`
-    //                     } else {
-    //                         return `/page`
-    //                     }
-    //                 },
-    //             })
-
-    //             return resolve()
-    //         })
-    //     )
-    // })
+                return resolve()
+            })
+        )
+    })
 
     // /**
     // * Issues
@@ -226,5 +219,5 @@ exports.createPages = ({ graphql, actions }) => {
     //     )
     // })
 
-    return Promise.all([])
+    return Promise.all([createIssues])
 }
