@@ -2,7 +2,7 @@ import React from 'react'
 import '../../styles/styles.scss'
 
 const Hero = ({ children }) => (
-    <section className="hero is-white has-text-centered">
+    <section className="hero is-white">
         {children}
     </section>
 )

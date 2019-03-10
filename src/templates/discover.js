@@ -22,8 +22,8 @@ const Discover = ({ data, pageContext }) => {
                 <section className="hero is-primary is-medium is-long-ish is-bold">
                     <div className="hero-body">
                         <div className="container has-text-centered">
-                            <h1 className="title is-spaced is-size-3-desktop is-size-4-mobile">Hi, I’m Matt. Nice to meet you.</h1>
-                            <h2 className="subtitle is-size-5-desktop">Since beginning my journey as a freelance designer nearly 8 years ago, I've done remote work for agencies, consulted for startups, and collaborated with talented people to create digital products for both business and consumer use. I'm quietly confident, naturally curious, and perpetually working on improving my chops one design problem at a time.</h2>
+                            <h1 className="title is-spaced is-size-2-desktop is-size-3-mobile">Descubre colectas asombrosas para apoyar</h1>
+                            <h2 className="subtitle is-size-3-desktop is-size-5-mobile">Hagamos grandes cosas juntos.</h2>
                         </div>
                     </div>
                 </section>
