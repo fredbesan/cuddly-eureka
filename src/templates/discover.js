@@ -18,7 +18,7 @@ const Discover = ({ data, pageContext }) => {
 
     return (
         <>
-            <Layout isHome={true}>
+            <Layout>
                 <section className="hero is-primary is-medium is-long-ish is-bold">
                     <div className="hero-body">
                         <div className="container has-text-centered">

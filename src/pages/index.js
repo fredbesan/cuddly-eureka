@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
 import { FaLongArrowAltRight } from 'react-icons/fa'
 import { Layout, Hero } from '../components/common'
 import workChatImg from '../images/undraw_work_chat_erdt.svg'

@@ -1,7 +1,10 @@
 import React from 'react'
 import hashmeOrgLogo from '../../images/logo.svg'
-
+import { getUser, isLoggedIn, logout } from "../../services/auth"
+import { FaAngleDown } from 'react-icons/fa'
 import '../../styles/styles.scss'
+// import { Link } from '@reach/router'
+import { Link, navigate } from "gatsby"
 // import bulmaLogo from '../images/bulma-logo.png'
 
 const Navbar = () => (
@@ -32,9 +35,61 @@ const Navbar = () => (
                         Blog
                     </a>
                     <span className="navbar-item">
-                        <a className="button is-secondary is-rounded is-outlined">
-                            <span>Ingresar</span>
-                        </a>
+                        {isLoggedIn() ? (
+                                <>
+                                    <div className="control has-icons-rigth">
+                                        <div className="is-fullwidth">
+                                            <div className="dropdown is-hoverable">
+                                                <div className="dropdown-trigger">
+                                                    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                                        <span className="icon is-large"><figure className="image" style={{ "margin-left": `2px` }}>🐨</figure></span>
+                                                        Hola {getUser().name}!
+                                                        <span className="icon is-small">
+                                                            <FaAngleDown/>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <div className="dropdown-menu" id="dropdown-menu4" role="menu">
+                                                    <div className="dropdown-content">
+                                                        <Link to="/app/profile" className="dropdown-item">
+                                                            Mi Perfil
+                                                        </Link>
+                                                        <Link to="/app/wallet" className="dropdown-item">
+                                                            Mi Billetera
+                                                        </Link>
+                                                        <hr className="dropdown-divider"/>
+                                                        <a to="/app/wallet" className="dropdown-item" onClick={(event) => {
+                                                            event.preventDefault()
+                                                            logout(() => navigate(`/app/login`))
+                                                        }}>
+                                                            Salir
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* <select className="is-large" name="project type" required="">
+                                                        <option value="0" disabled="" selected="">Hola {getUser().name}!</option>
+                                                        <option>
+                                                            <Link to="/app/profile">
+                                                            </Link>
+                                                        </option>
+                                                        <option>Billetera</option>
+                                                        <option>App</option>
+                                                        <option>Salir</option>
+                                                    </select>
+                                                    <span className="icon is-large"><figure className="image" style={{ "margin-left": `2px` }}>🐨</figure></span> */}
+                                        </div>
+                                    </div>
+                                </>
+                        ) : (
+                            <Link className="button is-secondary is-rounded is-outlined" to="/app/login">
+                                <span>
+                                    {` `}
+                                    <h1>Hola Mundo! </h1>
+                                </span>
+                            </Link>
+                        )}
                     </span>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 // Importing variables
 @import './variables.scss';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 // Importing Bulma from node_modules
 @import '~bulma/bulma.sass';
@@ -86,4 +87,111 @@ input[name="carousel"] {
 
 .is-long-ish {
     padding-bottom: 9rem;
+}
+
+.backers-icons a.button {
+    color: #fff;
+    border-radius: 100%;
+    margin: 0 .2rem;
+    height: 47px;
+    width: 47px;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.social-icons a.button .icon.is-small {
+    height: 1.4em;
+    width: 1.4em;
+}
+
+.hero .title {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.is-white .title {
+    color: #4e4e53;
+    font-weight: 400;
+}
+
+.is-form-page .container .avatar {
+    width: 84px;
+    margin: 2rem 0;
+    z-index: 10;
+}
+
+.is-form-page .container form {
+    max-width: 640px;
+    margin: 32px auto 0;
+}
+
+.is-form-page .container {
+    padding: 0 20px;
+}
+
+.is-form-page .container form label.label {
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    color: rgba(41,51,71,0.65);
+}
+
+.is-form-page .container form input.is-large, .is-form-page .container form textarea.is-large, .is-form-page .container form select.is-large {
+    font-size: 1.4rem;
+}
+
+.is-form-page .container form input, .is-form-page .container form textarea, .is-form-page .container form select {
+    border-color: #E6ECF8;
+    color: #293347;
+    box-shadow: none;
+    font-weight: 300;
+}
+
+.is-form-page .container form button {
+    margin: 20px 0 80px;
+    border-width: 2px;
+    font-weight: 400;
+    height: auto;
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+    top: 50%;
+    border-color: $secondary;
+}
+
+@media screen and (min-width: 769px), print {
+    .column.is-one-third, .column.is-one-third-tablet {
+        flex: none;
+        width: 33.3333%;
+    }
+}
+
+@media screen and (min-width: 769px){
+    .section.call-to-action .box {
+        padding: 3.5rem 1.25rem;
+    }
+}
+
+.section.call-to-action .box {
+    padding: 3.5rem 2rem;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px hsla(277, 83%, 95%, 1)
+}
+.section.call-to-action .box.is-primary{
+    background-color: $primary;
+    color: #fff;
+}
+
+.section.call-to-action .box.is-primary .title{
+    color: #fff;
+}
+
+.section.call-to-action .title, .section.call-to-action p{
+    color: $primary;
+    margin-bottom: 0;
+}
+
+
+
+@media screen and (min-width: 769px){
+    .is-form-page .container form {
+        margin: 60px auto 0;
+    }
 }
