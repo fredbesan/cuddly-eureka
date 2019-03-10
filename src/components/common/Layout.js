@@ -1,14 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { Link, StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
-
-import { Navigation } from '.'
-import config from '../../utils/siteConfig'
-
+import { StaticQuery, graphql } from 'gatsby'
+import { Header } from '.'
 // Styles
-import '../../styles/app.css'
+import '../../styles/styles.scss'
 
 /**
 * Main layout component
@@ -18,10 +14,8 @@ import '../../styles/app.css'
 * styles, and meta data for each page.
 *
 */
-const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
+const DefaultLayout = ({ data, children, bodyClass }) => {
     const site = data.allGhostSettings.edges[0].node
-    const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
-    const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
 
     return (
     <>
@@ -29,74 +23,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
             <html lang={site.lang} />
             <body className={bodyClass} />
         </Helmet>
-
-        <div className="viewport">
-
-            <div className="viewport-top">
-                {/* The main header section on top of the screen */}
-                <header className="site-head">
-                    <div className="container">
-                        <div className="site-mast">
-                            <div className="site-mast-left">
-                                <Link className="site-logo" to="/">Hashme.org
-                                    {/* {site.logo ?
-                                        <img className="site-logo" src={site.logo} alt={site.title} />
-                                        : <Img fixed={data.file.childImageSharp.fixed} alt={site.title} />
-                                    } */}
-                                </Link>
-                            </div>
-                            <div className="site-mast-right">
-                                <a className="site-nav-item " href="/issues">
-                                    Causas
-                                </a>
-                                <a className="site-nav-item " href="/grants">
-                                    Grants
-                                </a>
-                                <a className="site-nav-item" href="/signin-page">
-                                    Ingresar
-                                </a>
-                                <a className="site-nav-item site-nav-button secondary" href="/signup-page">
-                                    Registrarse
-                                </a>
-                            </div>
-                        </div>
-                        <div className="site-banner">
-                            <h1 className="site-banner-title">{site.title}</h1>
-                            <p className="site-banner-desc">{site.description}</p>
-                            { isHome ?
-                                <div className="site-nav-right">
-                                    <Link className="site-nav-button" to="/issues">Apoyar Causa</Link>
-                                    <Link className="site-nav-button secondary" to="/issues/new">Crear Causa</Link>
-                                </div>
-                                :
-                                null}
-                        </div>
-                    </div>
-                </header>
-
-                <main className="site-main">
-                    {/* All the main content gets inserted here, index.js, post.js */}
-                    {children}
-                </main>
-
-            </div>
-
-            <div className="viewport-bottom">
-                {/* The footer at the very bottom of the screen */}
-                <footer className="site-foot">
-                    <div className="site-foot-nav container">
-                        <div className="site-foot-nav-left">
-                            <Link to="/">{site.title}</Link> © 2019
-                        </div>
-                        <div className="site-foot-nav-right">
-                            <Navigation data={site.navigation} navClass="site-foot-nav-item" />
-                        </div>
-                    </div>
-                </footer>
-
-            </div>
-        </div>
-
+        <Header/>
     </>
     )
 }
