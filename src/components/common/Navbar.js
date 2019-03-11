@@ -49,15 +49,6 @@ class Navbar extends React.Component {
                             <a href="/discover" className="navbar-item has-text-grey">
                             Descubre
                             </a>
-                            <a className="navbar-item has-text-grey">
-                            Cómo funciona
-                            </a>
-                            <a className="navbar-item has-text-grey">
-                            Casos
-                            </a>
-                            <a className="navbar-item has-text-grey">
-                            Blog
-                            </a>
                             <span className="navbar-item">
                                 {isLoggedIn() ? (
                                     <>
