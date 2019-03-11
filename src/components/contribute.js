@@ -40,7 +40,7 @@ class Contribute extends React.Component {
                                         <ul className="pagination-list contribute-timeline">
                                             <li>
                                                 <a className="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
-                                                <h3 className="subtitle is-size-6-desktop is-size-7-mobile">Contribuir como</h3>
+                                                <h3 className="subtitle is-size-6-desktop is-size-7-mobile">Tipo</h3>
                                             </li>
                                             <li>
                                                 <a className="pagination-link" aria-label="Goto page 2">2</a>
