@@ -19,7 +19,7 @@ const Home = () => (
                 <Hero>
                     <div className="hero-body">
                         <div className="container">
-                            <div className="columns is-desktop is-vcentered is-gapless">
+                            <div className="columns is-desktop is-vcentered has-text-centered-mobile">
                                 <div className="column has-text-centered is-hidden-mobile">
                                     <div className="testimonials-slider">
                                         <input id="carousel-1" type="radio" name="carousel" checked/>
@@ -60,8 +60,8 @@ const Home = () => (
                                     <h1 className="title is-1">Crea una colecta.</h1>
                                     <h5 className="title is-5 is-spaced">Un grupo de personas que comparten la misión de potenciar las causas sociales a traves del marketing</h5>
                                     <h6 className="subtitle is-6">Crea una colecta y libera el poder de la comunidad para darle vida a tu misión </h6>
-                                    <a className="button is-primary is-rounded is-large">Crea una campaña</a>
-                                    <a className="button is-primary is-text is-large is-inverted" style={{ textDecoration: `none` }}>
+                                    <a className="button is-primary is-rounded is-large is-flex-mobile">Crea una campaña</a>
+                                    <a className="button is-primary is-text is-large is-inverted is-flex-mobile" style={{ textDecoration: `none` }}>
                                         <span>Saber más</span>
                                         <span className="icon">
                                             <FaLongArrowAltRight/>

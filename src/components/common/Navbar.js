@@ -45,7 +45,7 @@ class Navbar extends React.Component {
                         </span>
                     </div>
                     <div id="navbarMenuHeroC" className={menuClass}>
-                        <div className="navbar-end">
+                        <div className="navbar-end has-text-centered-mobile">
                             <a href="/discover" className="navbar-item has-text-grey">
                             Descubre
                             </a>
@@ -62,47 +62,37 @@ class Navbar extends React.Component {
                                 {isLoggedIn() ? (
                                     <>
                                         <div className="control has-icons-rigth">
-                                            <div className="is-fullwidth">
-                                                <div className="dropdown is-hoverable">
-                                                    <div className="dropdown-trigger">
-                                                        <button className="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                                                            <span className="icon is-large"><figure className="image" style={{ marginLeft: `2px` }}>🐨</figure></span>
-                                                            Hola {getUser().name}!
-                                                            <span className="icon is-small">
-                                                                <FaAngleDown/>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    <div className="dropdown-menu" id="dropdown-menu4" role="menu">
-                                                        <div className="dropdown-content">
-                                                            <Link to="/app/profile" className="dropdown-item">
-                                                                Mi Perfil
-                                                            </Link>
-                                                            <Link to="/app/wallet" className="dropdown-item">
-                                                                Mi Billetera
-                                                            </Link>
-                                                            <hr className="dropdown-divider"/>
-                                                            <a to="/app/wallet" className="dropdown-item" onClick={(event) => {
-                                                                event.preventDefault()
-                                                                logout(() => navigate(`/app/login`))
-                                                            }}>
-                                                                Salir
-                                                            </a>
+                                            <div className="columns">
+                                                <div className="column has-text-centered-mobile">
+                                                    <div className="dropdown is-hoverable">
+                                                        <div className="dropdown-trigger">
+                                                            <button className="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                                                <span className="icon is-large"><figure className="image" style={{ marginLeft: `2px` }}>🐨</figure></span>
+                                                                Hola {getUser().name}!
+                                                                <span className="icon is-small">
+                                                                    <FaAngleDown/>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                        <div className="dropdown-menu" id="dropdown-menu4" role="menu">
+                                                            <div className="dropdown-content">
+                                                                <Link to="/app/profile" className="dropdown-item">
+                                                                    Mi Perfil
+                                                                </Link>
+                                                                <Link to="/app/wallet" className="dropdown-item">
+                                                                    Mi Billetera
+                                                                </Link>
+                                                                <hr className="dropdown-divider"/>
+                                                                <a to="/app/wallet" className="dropdown-item" onClick={(event) => {
+                                                                    event.preventDefault()
+                                                                    logout(() => navigate(`/app/login`))
+                                                                }}>
+                                                                    Salir
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                {/* <select className="is-large" name="project type" required="">
-                                                            <option value="0" disabled="" selected="">Hola {getUser().name}!</option>
-                                                            <option>
-                                                                <Link to="/app/profile">
-                                                                </Link>
-                                                            </option>
-                                                            <option>Billetera</option>
-                                                            <option>App</option>
-                                                            <option>Salir</option>
-                                                        </select>
-                                                        <span className="icon is-large"><figure className="image" style={{ "margin-left": `2px` }}>🐨</figure></span> */}
                                             </div>
                                         </div>
                                     </>
