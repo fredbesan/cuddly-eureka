@@ -107,7 +107,7 @@ exports.onCreatePage = async ({ page, actions }) => {
     console.log(page.path)
     const AppMatchs = page.path.match(/^\/app\//)
     const ContributeMatchs = page.path.match(/^\/.*\/contribute/)
-    const DonateMatchs = page.path.match(/^\/.*\/donate/)
+    // const DonateMatchs = page.path.match(/^\/.*\/donate/)
     // page.matchPath is a special key that's used for matching pages
     // only on the client.
     if (AppMatchs){

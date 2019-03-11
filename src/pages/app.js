@@ -5,8 +5,6 @@ import { Login } from "../components/common"
 import Registry from "../components/registry"
 import Profile from "../components/profile"
 import Wallet from "../components/wallet"
-import Donate from "../components/Donate"
-import Contribute from "../components/contribute"
 import { graphql } from 'gatsby'
 
 const App = ({ data, pageContext }) => {
