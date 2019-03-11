@@ -125,14 +125,4 @@ exports.onCreatePage = async ({ page, actions }) => {
             createPage(page)
         }
     }
-
-    if (DonateMatchs){
-        if (DonateMatchs.input){
-            page.matchPath = `${page.path}*`
-            // Update the page.
-            createPage(page)
-        }
-    }
-
-
 }
