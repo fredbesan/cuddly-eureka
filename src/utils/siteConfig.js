@@ -1,9 +1,9 @@
 module.exports = {
-    siteUrl: `https://gatsby.ghost.org`, // Site domain. Do not include a trailing slash!
+    siteUrl: `https://clever-nightingale-b166c7.netlify.com`, // Site domain. Do not include a trailing slash!
 
     postsPerPage: 12, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
 
-    siteTitleMeta: `Ghost Gatsby Starter`, // This allows an alternative site title for meta data for pages.
+    siteTitleMeta: `Hashme Org, Plataforma De Marketing para non-profits`, // This allows an alternative site title for meta data for pages.
     siteDescriptionMeta: `A starter template to build amazing static websites with Ghost and Gatbsy`, // This allows an alternative site description for meta data for pages.
 
     shareImage: `/images/Ghost-Docs.jpg`, // fallback image for meta data. Will be used, when no post/tag/author image specified. 1200x1200 is recommended
@@ -13,5 +13,5 @@ module.exports = {
     shortTitle: `Hashme.org`, // Used for App manifest e.g. Mobile Home Screen
     siteIcon: `favicon.png`, // Logo in /static dir used for SEO, RSS, and App manifest
     backgroundColor: `#e9e9e9`, // Used for Offline Manifest
-    themeColor: `#15171A`, // Used for Offline Manifest
+    themeColor: `#E47AFF`, // Used for Offline Manifest
 }

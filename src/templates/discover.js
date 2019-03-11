@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import { Layout, IssueCard } from '../components/common'
-// import { MetaData } from '../components/common/meta'
+import { MetaData } from '../components/common/meta'
 
 /**
 * Main index page
@@ -13,11 +13,14 @@ import { Layout, IssueCard } from '../components/common'
 * in /utils/siteConfig.js under `postsPerPage`.
 *
 */
-const Discover = ({ data, pageContext }) => {
+const Discover = ({ data, location }) => {
     const posts = data.allGhostPost.edges
 
     return (
         <>
+            <MetaData
+                data={data}
+                location={location}/>
             <Layout>
                 <section className="hero is-primary is-medium is-long-ish is-bold">
                     <div className="hero-body">

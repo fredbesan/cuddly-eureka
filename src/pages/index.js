@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { FaLongArrowAltRight } from 'react-icons/fa'
 import { Layout, Hero } from '../components/common'
 import workChatImg from '../images/undraw_work_chat_erdt.svg'
+import { MetaData } from '../components/common/meta'
 
 /**
 * Main index page (home page)
@@ -12,8 +13,9 @@ import workChatImg from '../images/undraw_work_chat_erdt.svg'
 * in /utils/siteConfig.js under `postsPerPage`.
 *
 */
-const Home = () => (
+const Home = ({ data, location }) => (
         <>
+            <MetaData data={data} location={location} />
             <Layout>
                 {/* <!-- Hero content: will be in the middle --> */}
                 <Hero>

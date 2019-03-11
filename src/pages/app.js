@@ -7,10 +7,7 @@ import Profile from "../components/profile"
 import Wallet from "../components/wallet"
 import { graphql } from 'gatsby'
 
-const App = ({ data, pageContext }) => {
-    const posts = data.allGhostPost.edges
-
-    return (
+const App = () => (
         <>
             <Layout>
                 <Router>
@@ -21,8 +18,7 @@ const App = ({ data, pageContext }) => {
                 </Router>
             </Layout>
         </>
-    )
-}
+)
 
 export default App
 

@@ -1,12 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
-import { FaTwitter, FaInstagram, FaFacebook } from 'react-icons/fa'
 import { Layout } from '../components/common'
 import AdoptaUnHincha from '../images/adopta-un-hincha-logo.svg'
-import BackerPig from '../images/backer-pig.svg'
-import BackerCat from '../images/backer-cat.svg'
-import BackerKoala from '../images/backer-koala.svg'
+import { MetaData } from '../components/common/meta'
 
 /**
 * Single issue view (/:slug)
@@ -14,11 +11,16 @@ import BackerKoala from '../images/backer-koala.svg'
 * This file renders a single post and loads all the content.
 *
 */
-const Issue = ({ data }) => {
+const Issue = ({ data, location }) => {
     const post = data.ghostPost
     const url = `${post.slug}/contribute/tier/${post.ghostId}-backers`
     return (
             <>
+                <MetaData
+                    data={data}
+                    location={location}
+                    type="article"
+                />
                 <Layout>
                     <section className="hero is-medium">
                         <div className="hero-body">
@@ -31,17 +33,17 @@ const Issue = ({ data }) => {
                                 <h2 className="subtitle is-size-6-desktop is-size-5-mobile">Hosted by <strong>{post.primary_author.name}</strong></h2>
                                 <div className="backers-icons">
                                     <p className="field">
-                                        <a className="button is-warning is-medium" href="https://twitter.com/farleymatters" target="_blank">
+                                        <a className="button is-warning is-medium" href="">
                                             <span className="icon is-large">
                                                 <figure className="image" style={{ marginLeft: `2px` }}>🐱</figure>
                                             </span>
                                         </a>
-                                        <a className="button is-danger is-medium" href="https://twitter.com/farleymatters" target="_blank">
+                                        <a className="button is-danger is-medium" href="">
                                             <span className="icon is-large">
                                                 <figure className="image" style={{ marginLeft: `2px` }}>🐷</figure>
                                             </span>
                                         </a>
-                                        <a className="button is-success is-medium" href="https://twitter.com/farleymatters" target="_blank">
+                                        <a className="button is-success is-medium" href="">
                                             <span className="icon is-large">
                                                 <figure className="image" style={{ marginLeft: `2px` }}>🐨</figure>
                                             </span>
