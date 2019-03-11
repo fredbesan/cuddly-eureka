@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { FaTwitter, FaInstagram, FaFacebook } from 'react-icons/fa'
 import { Layout } from '../components/common'
 import AdoptaUnHincha from '../images/adopta-un-hincha-logo.svg'
@@ -16,11 +16,11 @@ import BackerKoala from '../images/backer-koala.svg'
 */
 const Issue = ({ data }) => {
     const post = data.ghostPost
-
+    const url = `${post.slug}/contribute/tier/${post.ghostId}-backers`
     return (
             <>
                 <Layout>
-                    <section className="hero is-success is-medium is-bold">
+                    <section className="hero is-medium">
                         <div className="hero-body">
                             <div className="container has-text-centered">
                                 <figure className="image is-64x64" style={{ margin: `0 auto` }}>
@@ -51,7 +51,7 @@ const Issue = ({ data }) => {
                                 <hr className="hr" style={{ backgroundColor: `transparent`, marginBottom: `1.5rem` }}/>
                                 <h2 className="subtitle is-size-6-desktop is-size-5-mobile">Gracias a sus contribuciones financieras, estamos operando con un presupuesto anual de marketing estimado de <strong>ARS $68.732</strong></h2>
                                 <progress className="progress is-small is-primary" value="54.94" max="100">54.94%</progress>
-                                <a className="button is-large is-primary is-rounded">Apoyar</a>
+                                <Link to={url} className="button is-large is-primary is-rounded">Apoyar</Link>
                             </div>
                         </div>
                         {/* <!-- Hero footer: will stick at the bottom --> */}

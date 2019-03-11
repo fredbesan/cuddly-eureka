@@ -188,7 +188,10 @@ input[name="carousel"] {
     margin-bottom: 0;
 }
 
-
+.contribute-timeline{
+    display: flex;
+    justify-content: space-around;
+}
 
 @media screen and (min-width: 769px){
     .is-form-page .container form {

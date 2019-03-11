@@ -17,6 +17,7 @@ exports.createPages = ({ graphql, actions }) => {
     const createIssues = new Promise((resolve, reject) => {
         const issueTemplate = path.resolve(`./src/templates/issue.js`)
         const discoverTemplate = path.resolve(`./src/templates/discover.js`)
+        const ContributeComponent = path.resolve(`./src/components/contribute.js`)
         resolve(
             graphql(`
             {
@@ -30,6 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
                     edges {
                         node {
                             slug
+                            ghostId
                         }
                     }
                 }
@@ -60,6 +62,26 @@ exports.createPages = ({ graphql, actions }) => {
                             slug: node.slug,
                         },
                     })
+                    createPage({
+                        path: `${node.url}contribute/tier/${node.ghostId}-backers`,
+                        component: path.resolve(ContributeComponent),
+                        isHome: false,
+                        context: {
+                            // Data passed to context is available
+                            // in page queries as GraphQL variables.
+                            slug: node.slug,
+                        },
+                    })
+                    // createPage({
+                    //     path: `${node.url}donate`,
+                    //     component: path.resolve(issueTemplate),
+                    //     isHome: false,
+                    //     context: {
+                    //         // Data passed to context is available
+                    //         // in page queries as GraphQL variables.
+                    //         slug: node.slug,
+                    //     },
+                    // })
                 })
                 // Pagination for posts, e.g., /, /page/2, /page/3
                 paginate({
@@ -75,150 +97,6 @@ exports.createPages = ({ graphql, actions }) => {
         )
     })
 
-    // /**
-    // * Issues
-    // */
-    // const createGrants = new Promise((resolve, reject) => {
-    //     const issueTemplate = path.resolve(`./src/templates/grant.js`)
-    //     const indexTemplate = path.resolve(`./src/templates/index.js`)
-    //     resolve(
-    //         graphql(`
-    //     {
-    //         allGhostPost(
-    //             sort: {order: ASC, fields: published_at},
-    //             filter: {
-    //                 slug: {ne: "data-schema"}
-    //                 primary_tag: {name: {eq: "grant"}}
-    //             }
-    //         ) {
-    //             edges {
-    //                 node {
-    //                     slug
-    //                 }
-    //             }
-    //         }
-    //     }`
-    //         ).then((result) => {
-    //             if (result.errors) {
-    //                 return reject(result.errors)
-    //             }
-
-    //             if (!result.data.allGhostPost) {
-    //                 return resolve()
-    //             }
-
-    //             const items = result.data.allGhostPost.edges
-
-    //             _.forEach(items, ({ node }) => {
-    //                 // This part here defines, that our posts will use
-    //                 // a `/:slug/` permalink.
-    //                 node.url = `/issues/${node.slug}/`
-
-    //                 createPage({
-    //                     path: node.url,
-    //                     component: path.resolve(issueTemplate),
-    //                     context: {
-    //                         // Data passed to context is available
-    //                         // in page queries as GraphQL variables.
-    //                         slug: node.slug,
-    //                     },
-    //                 })
-    //             })
-
-    //             // Pagination for posts, e.g., /, /page/2, /page/3
-    //             paginate({
-    //                 createPage,
-    //                 items: items,
-    //                 itemsPerPage: config.postsPerPage,
-    //                 component: indexTemplate,
-    //                 pathPrefix: ({ pageNumber }) => {
-    //                     if (pageNumber === 0) {
-    //                         return `/`
-    //                     } else {
-    //                         return `/page`
-    //                     }
-    //                 },
-    //             })
-
-    //             return resolve()
-    //         })
-    //     )
-    // })
-
-    /**
-    * Authors
-    */
-    // const createAuthors = new Promise((resolve, reject) => {
-    //     const authorTemplate = path.resolve(`./src/templates/author.js`)
-    //     resolve(
-    //         graphql(`
-    //             {
-    //                 allGhostAuthor(
-    //                     sort: {order: ASC, fields: name},
-    //                     filter: {
-    //                         slug: {ne: "data-schema-author"}
-    //                     }
-    //                 ) {
-    //                     edges {
-    //                         node {
-    //                             slug
-    //                             url
-    //                             postCount
-    //                         }
-    //                     }
-    //                 }
-    //             }`
-    //         ).then((result) => {
-    //             if (result.errors) {
-    //                 return reject(result.errors)
-    //             }
-
-    //             if (!result.data.allGhostAuthor) {
-    //                 return resolve()
-    //             }
-
-    //             const items = result.data.allGhostAuthor.edges
-    //             const postsPerPage = config.postsPerPage
-
-    //             _.forEach(items, ({ node }) => {
-    //                 const totalPosts = node.postCount !== null ? node.postCount : 0
-    //                 const numberOfPages = Math.ceil(totalPosts / postsPerPage)
-
-    //                 // This part here defines, that our author pages will use
-    //                 // a `/author/:slug/` permalink.
-    //                 node.url = `/author/${node.slug}/`
-
-    //                 Array.from({ length: numberOfPages }).forEach((_, i) => {
-    //                     const currentPage = i + 1
-    //                     const prevPageNumber = currentPage <= 1 ? null : currentPage - 1
-    //                     const nextPageNumber = currentPage + 1 > numberOfPages ? null : currentPage + 1
-    //                     const previousPagePath = prevPageNumber ? prevPageNumber === 1 ? node.url : `${node.url}page/${prevPageNumber}/` : null
-    //                     const nextPagePath = nextPageNumber ? `${node.url}page/${nextPageNumber}/` : null
-
-    //                     createPage({
-    //                         path: i === 0 ? node.url : `${node.url}page/${i + 1}/`,
-    //                         component: path.resolve(authorTemplate),
-    //                         context: {
-    //                             // Data passed to context is available
-    //                             // in page queries as GraphQL variables.
-    //                             slug: node.slug,
-    //                             limit: postsPerPage,
-    //                             skip: i * postsPerPage,
-    //                             numberOfPages: numberOfPages,
-    //                             humanPageNumber: currentPage,
-    //                             prevPageNumber: prevPageNumber,
-    //                             nextPageNumber: nextPageNumber,
-    //                             previousPagePath: previousPagePath,
-    //                             nextPagePath: nextPagePath,
-    //                         },
-    //                     })
-    //                 })
-    //             })
-    //             return resolve()
-    //         })
-    //     )
-    // })
-
     return Promise.all([createIssues])
 }
 
@@ -226,12 +104,35 @@ exports.createPages = ({ graphql, actions }) => {
 // called after every page is created.
 exports.onCreatePage = async ({ page, actions }) => {
     const { createPage } = actions
-
+    console.log(page.path)
+    const AppMatchs = page.path.match(/^\/app\//)
+    const ContributeMatchs = page.path.match(/^\/.*\/contribute/)
+    const DonateMatchs = page.path.match(/^\/.*\/donate/)
     // page.matchPath is a special key that's used for matching pages
     // only on the client.
-    if (page.path.match(/^\/app/)) {
-        page.matchPath = `/app/*`
-        // Update the page.
-        createPage(page)
+    if (AppMatchs){
+        if (AppMatchs.input){
+            page.matchPath = `/app/*`
+            // Update the page.
+            createPage(page)
+        }
     }
+
+    if (ContributeMatchs){
+        if (ContributeMatchs.input){
+            page.matchPath = `${page.path}*`
+            // Update the page.
+            createPage(page)
+        }
+    }
+
+    if (DonateMatchs){
+        if (DonateMatchs.input){
+            page.matchPath = `${page.path}*`
+            // Update the page.
+            createPage(page)
+        }
+    }
+
+
 }

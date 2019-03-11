@@ -42,7 +42,7 @@ const Navbar = () => (
                                             <div className="dropdown is-hoverable">
                                                 <div className="dropdown-trigger">
                                                     <button className="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                                                        <span className="icon is-large"><figure className="image" style={{ "margin-left": `2px` }}>🐨</figure></span>
+                                                        <span className="icon is-large"><figure className="image" style={{ marginLeft: `2px` }}>🐨</figure></span>
                                                         Hola {getUser().name}!
                                                         <span className="icon is-small">
                                                             <FaAngleDown/>

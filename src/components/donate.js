@@ -1,10 +1,10 @@
 import React from "react"
 import { navigate, Link } from "gatsby"
 import { handleLogin, isLoggedIn } from "../services/auth"
-import { Layout, Hero } from "../components/common"
+import { Login } from "./common"
 import hashmeOrgIsoLogo from '../images/hashme-isologo.svg'
 
-class Login extends React.Component {
+class Donate extends React.Component {
   state = {
       username: ``,
       password: ``,
@@ -83,4 +83,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+export default Donate

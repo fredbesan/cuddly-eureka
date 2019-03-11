@@ -2,4 +2,6 @@
 
 $primary: #CC00FF;
 $secondary: #E47AFF;
-$box-link-hover-shadow: 0 2px 3px rgba($primary, 0.1), 0 0 0 1px $primary
+$box-link-hover-shadow: 0 2px 3px rgba($primary, 0.1), 0 0 0 1px $primary;
+$pagination-current-background-color: $primary;
+$pagination-current-border-color: $primary;

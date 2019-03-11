@@ -131,7 +131,18 @@ const Profile = () => (
                                       </div>
                                       <div className="column">
                                           <h2 className="title is-4 is-spaced">Contacto</h2>
-                                          <h1 className="subtitle is-6 is-spaced">No hay declaraciones disponibles.</h1>
+                                          <h1 className="subtitle is-6 is-spaced">{`${getUser().name} ${getUser().lastName}`}</h1>
+                                          <h1 className="subtitle is-6 is-spaced">{`${getUser().email}`}</h1>
+                                      </div>
+                                  </div>
+                                  <div className="columns">
+                                      <div className="column is-one-fifth">
+                                          <label className="checkbox" style={{ marginLeft: `-24px` }}>
+                                              <input type="checkbox"/>
+                                          </label>
+                                      </div>
+                                      <div className="column">
+                                          <h1 className="subtitle is-6 is-spaced">Sí, ayúdeme a aumentar el conocimiento de los colaboradores al enumerar mi sitio en los canales de comercialización de Hashme.</h1>
                                       </div>
                                   </div>
                               </div>
