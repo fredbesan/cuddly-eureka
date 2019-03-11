@@ -1,5 +1,7 @@
 const path = require(`path`)
-
+require(`dotenv`).config({
+    path: `.env.${process.env.NODE_ENV}`,
+})
 const config = require(`./src/utils/siteConfig`)
 const generateRSSFeed = require(`./src/utils/rss/generate-feed`)
 
@@ -181,5 +183,14 @@ module.exports = {
         `gatsby-plugin-force-trailing-slashes`,
         `gatsby-plugin-offline`,
         `gatsby-plugin-sass`,
+        `gatsby-plugin-stripe`,
+        {
+            resolve: `gatsby-source-stripe`,
+            options: {
+                objects: [`Sku`],
+                secretKey: process.env.STRIPE_SECRET_KEY,
+                downloadFiles: true,
+            },
+        },
     ],
 }
