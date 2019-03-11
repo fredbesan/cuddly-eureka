@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: clever-nightingale-b166c7.netlify.com
+Token: 71e052af3db4c936da2adeb2f8f08333b70483816cd0c950172645ed459fb37d
