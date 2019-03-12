@@ -14,26 +14,9 @@ import hashmeOrgIsoLogo from '../images/hashme-isologo.svg'
 const SignInPage = () => (
     <Fragment>
         <div className="is-form-page">
-            <section className="is-white has-text-centered">
-                <div className="container">
-                    <div className="container">
-                        <div className="columns is-centered">
-                            <div className="column is-three-quarters">
-                                <img className="avatar" src={hashmeOrgIsoLogo}/>
-                                <h1 className="title is-spaced is-size-1-desktop is-size-2-tablet is-size-3-mobile">Iniciar Sesión</h1>
-                                <Link to="/signup">
-                                    <h2 className="subtitle">Registrarme</h2>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className="is-white">
-                <div className="container">
-                    <SignInForm />
-                </div>
-            </section>
+            <div className="container">
+                <SignInForm />
+            </div>
         </div>
         {/*
         <SignInGoogle />
@@ -44,8 +27,22 @@ const SignInPage = () => (
     </Fragment>
 )
 
+const HeroBody = () => (
+    <div className="columns is-centered">
+        <div className="column is-three-quarters">
+            <img className="avatar" src={hashmeOrgIsoLogo}/>
+            <h1 className="title is-spaced is-size-1-desktop is-size-2-tablet is-size-3-mobile">Iniciar Sesión</h1>
+            <h2 className="subtitle">¿No tienes una cuenta?{` `}
+                <Link to="/signup">
+                    Registrate
+                </Link>
+            </h2>
+        </div>
+    </div>
+)
+
 export default () => (
-    <Layout>
-        <SignInPage />
+    <Layout heroBody={HeroBody} modifiers={'has-text-centered is-form-page is-small'}>
+        <SignInPage/>
     </Layout>
 )

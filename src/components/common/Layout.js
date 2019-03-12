@@ -5,36 +5,72 @@ import getFirebase, { FirebaseContext } from './Firebase'
 import withAuthentication from './Session/withAuthentication'
 
 class Layout extends Component {
-  state = {
-      firebase: null,
-  };
+    state = {
+        firebase: null,
+        isLoading: true,
+    }
 
-  componentDidMount() {
-      const app = import(`firebase/app`)
-      const auth = import(`firebase/auth`)
-      const database = import(`firebase/database`)
+    componentDidMount() {
+        const app = import(`firebase/app`)
+        const auth = import(`firebase/auth`)
+        const database = import(`firebase/database`)
 
-      Promise.all([app, auth, database]).then((values) => {
-          const firebase = getFirebase(values[0])
+        Promise.all([app, auth, database]).then((values) => {
+            const firebase = getFirebase(values[0])
 
-          this.setState({ firebase })
-      })
-  }
+            this.setState({ firebase, isLoading: false })
+        })
+    }
 
-  render() {
-      return (
-          <FirebaseContext.Provider value={this.state.firebase}>
-              <AppWithAuthentication {...this.props} />
-          </FirebaseContext.Provider>
-      )
-  }
+    render() {
+        return (
+            <FirebaseContext.Provider value={this.state.firebase}>
+                <AppWithAuthentication loading={this.state.isLoading} {...this.props} />
+            </FirebaseContext.Provider>
+        )
+    }
 }
 
-const AppWithAuthentication = withAuthentication(({ children }) => (
+const AppWithAuthentication = withAuthentication((
+    {
+        heroBody: Component,
+        tabs,
+        modifiers,
+        children,
+        ...rest
+    }) => (
     <Fragment>
-        <Navbar />
+        <div className={`hero ${modifiers}`}>
+            <Navbar />
+            {Component ?
+                <div className="hero-body">
+                    <div className="container">
+                        <Component {...rest} />
+                    </div>
+                </div>
+                : null
+            }
+
+            <div className="hero-foot">
+                <nav className="tabs is-centered">
+                    <div className="container">
+                        <ul>
+                            {tabs.map(({ active, text }, index) => (
+                                <li key={index} className={`${active? `is-active`: null}`}><a>{text}</a></li>
+                            ))}
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
         {children}
     </Fragment>
 ))
+
+AppWithAuthentication.defaultProps = {
+    tabs: [],
+    modifiers: ``,
+}
 
 export default Layout

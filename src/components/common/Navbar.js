@@ -122,36 +122,42 @@ class NavigationNonAuth extends React.Component {
         })
 
         return (
-            <nav className="navbar" role="navigation" aria-label="main navigation">
-                <div className="container">
-                    <div className="navbar-brand">
-                        <a href="/" className="navbar-item">
-                            <img src={hashmeOrgLogo} alt="Logo"/>
-                        </a>
-                        <span className={burgerClass} onClick={this.handleClick} data-target="navbarMenuHeroC">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                    </div>
-                    <div id="navbarMenuHeroC" className={menuClass}>
-                        <div className="navbar-end has-text-centered-mobile">
-                            <a href="/discover" className="navbar-item has-text-grey">
-                    Descubre
-                            </a>
-                            <span className="navbar-item">
-                                <Link className="button is-secondary is-rounded is-outlined" to="/signin">
-                                    <span>
-                                        {` `}
-                                        <h1>Hola Mundo! </h1>
+            <div className="navbar-wrapper">
+                <div className="hero-head">
+                    <div className="container">
+                        <nav className="navbar" role="navigation" aria-label="main navigation">
+                            <div className="container">
+                                <div className="navbar-brand">
+                                    <a href="/" className="navbar-item">
+                                        <img src={hashmeOrgLogo} alt="Logo"/>
+                                    </a>
+                                    <span className={burgerClass} onClick={this.handleClick} data-target="navbarMenuHeroC">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
                                     </span>
-                                </Link>
+                                </div>
+                                <div id="navbarMenuHeroC" className={menuClass}>
+                                    <div className="navbar-end has-text-centered-mobile">
+                                        <a href="/discover" className="navbar-item has-text-grey">
+                    Descubre
+                                        </a>
+                                        <span className="navbar-item">
+                                            <Link className="button is-secondary is-rounded is-outlined" to="/signin">
+                                                <span>
+                                                    {` `}
+                                                    <h1>Hola Mundo! </h1>
+                                                </span>
+                                            </Link>
 
-                            </span>
-                        </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
                     </div>
                 </div>
-            </nav>
+            </div>
         )
     }
 }
