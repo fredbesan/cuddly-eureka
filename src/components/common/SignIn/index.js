@@ -10,6 +10,8 @@ const INITIAL_STATE = {
     error: null,
 }
 
+import { PasswordForgetLink } from '../PasswordForget'
+
 const ERROR_CODE_ACCOUNT_EXISTS =
   `auth/account-exists-with-different-credential`
 
@@ -53,7 +55,7 @@ class SignInFormBase extends Component {
       const isInvalid = password === `` || email === ``
 
       return (
-          <form method="post" onSubmit={this.onSubmit}>
+          <form className="form-page" method="post" onSubmit={this.onSubmit}>
               <div className="columns is-centered">
                   <div className="column is-half">
                       <div className="field">
@@ -79,6 +81,7 @@ class SignInFormBase extends Component {
                                   className="input is-large" placeholder="Ingresá tu contraseña"/>
                           </div>
                       </div>
+                      <PasswordForgetLink/>
                   </div>
               </div>
               <div className="columns is-centered">
@@ -135,7 +138,7 @@ class SignInGoogleBase extends Component {
 
       return (
           <form onSubmit={this.onSubmit}>
-              <button type="submit">Sign In with Google</button>
+              <button className="button is-danger is-outlined is-medium is-rounded is-fullwidth" type="submit">Inicia con Google</button>
 
               {error && <p>{error.message}</p>}
           </form>
@@ -181,7 +184,7 @@ class SignInFacebookBase extends Component {
 
       return (
           <form onSubmit={this.onSubmit}>
-              <button type="submit">Sign In with Facebook</button>
+              <button className="button is-link is-outlined is-medium is-rounded is-fullwidth" type="submit">Inicia con Facebook</button>
 
               {error && <p>{error.message}</p>}
           </form>
@@ -227,8 +230,7 @@ class SignInTwitterBase extends Component {
 
       return (
           <form onSubmit={this.onSubmit}>
-              <button type="submit">Sign In with Twitter</button>
-
+              <button className="button is-info is-outlined is-medium is-rounded is-fullwidth" type="submit">Inicia con Twitter</button>
               {error && <p>{error.message}</p>}
           </form>
       )
