@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import hashmeOrgLogo from '../../images/logo.svg'
+import hashmeOrgIsoLogo from '../../images/isoLogo.svg'
 import { FaAngleDown } from 'react-icons/fa'
 import '../../styles/styles.scss'
 import { Link } from "gatsby"
@@ -10,7 +11,7 @@ import SignOutButton from '../common/SignOut'
 const Navbar = () => (
     <AuthUserContext.Consumer>
         {
-            authUser => authUser ? (<NavigationAuth authUser={authUser} />) : (<NavigationNonAuth />)
+            authUser => !authUser ? (<NavigationAuth authUser={authUser} />) : (<NavigationNonAuth />)
         }
     </AuthUserContext.Consumer>
 )
@@ -44,53 +45,11 @@ class NavigationAuth extends React.Component {
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="container">
                     <div className="navbar-brand">
-                        <a href="/" className="navbar-item">
-                            <img src={hashmeOrgLogo} alt="Logo"/>
+                        <a className="navbar-item" href="/">
+                            <img className="hashme-logo is-hidden-mobile" width="112" height="24" src={hashmeOrgLogo} alt="Hashme Core Logo"/>
+                            <img className="hashme-logo is-hidden-desktop is-hidden-tablet" src={hashmeOrgIsoLogo} alt="Hashme Core Logo"/>
                         </a>
-                        <span className={burgerClass} onClick={this.handleClick} data-target="navbarMenuHeroC">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                    </div>
-                    <div id="navbarMenuHeroC" className={menuClass}>
-                        <div className="navbar-end has-text-centered-mobile">
-                            <a href="/discover" className="navbar-item">
-                    Descubre
-                            </a>
-                            <span className="navbar-item">
-                                <div className="control has-icons-rigth">
-                                    <div className="columns">
-                                        <div className="column has-text-centered-mobile">
-                                            <div className="dropdown is-hoverable">
-                                                <div className="dropdown-trigger">
-                                                    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                                                        <span className="icon is-large"><figure className="image" style={{ marginLeft: `2px` }}>🐨</figure></span>
-                                                        Hola {this.props.authUser.username}!
-                                                        <span className="icon is-small">
-                                                            <FaAngleDown/>
-                                                        </span>
-                                                    </button>
-                                                </div>
-                                                <div className="dropdown-menu" id="dropdown-menu4" role="menu">
-                                                    <div className="dropdown-content">
-                                                        <Link to="/account" className="dropdown-item">
-                                                            Mi Perfil
-                                                        </Link>
-                                                        <Link to="/wallet" className="dropdown-item">
-                                                            Mi Billetera
-                                                        </Link>
-                                                        <hr className="dropdown-divider"/>
-                                                        <div className="dropdown-item">
-                                                            <SignOutButton/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
+                        <div className="navbar-menu">
                         </div>
                     </div>
                 </div>

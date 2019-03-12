@@ -6,99 +6,6 @@
 // Importing Bulma from node_modules
 @import '~bulma/bulma.sass';
 
-.center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.testimonials-slider {
-    position: relative;
-}
-
-input[name="carousel"] {
-    display: none;
-}
-
-.carousel-slides {
-    width: 100%;
-    overflow: hidden;
-}
-
-#carousel-1:checked ~ .carousel-slides .carousel-inner {
-    margin-left: 0%;
-}
-
-.carousel-slides .carousel-inner {
-    width: 500%;
-    transition: margin 0.5s;
-}
-
-.carousel-slides .carousel-item {
-    float: left;
-    width: 20%;
-}
-
-.testimonial-block {
-    margin-bottom: 2rem;
-}
-
-.carousel-nav {
-    margin: 0.25rem 0 3rem;
-    text-align: center;
-    z-index: 1;
-}
-
-.carousel-nav label {
-    display: inline-block;
-    margin: 0 6px;
-    width: 15px;
-    height: 15px;
-    border: 2px solid #E6ECF8;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.25s;
-}
-
-#carousel-1:checked ~ .carousel-nav label[for="carousel-1"] {
-    background-color: $secondary;
-    border: 2px solid $secondary;
-}
-
-.testimonial-block .quote {
-    margin: 0 auto 2.5rem;
-}
-
-.testimonial-block img.avatar {
-    margin: 2.5rem auto 2rem;
-    height: auto;
-    border-radius: 100px;
-}
-
-
-.box .content figure.image img.is-issue-icon {
-    height: 64px;
-    width: auto;
-}
-
-.issue-feed {
-    padding-bottom: 9rem;
-    margin-top: -14rem;
-}
-
-.is-long-ish {
-    padding-bottom: 9rem;
-}
-
-.backers-icons a.button {
-    color: #fff;
-    border-radius: 100%;
-    margin: 0 .2rem;
-    height: 47px;
-    width: 47px;
-    border: 2px solid rgba(255,255,255,0.3);
-}
-
 .social-icons a.button .icon.is-small {
     height: 1.4em;
     width: 1.4em;
@@ -742,4 +649,9 @@ Button styles
         transform: scale(100);
         opacity: 0;
     }
+}
+
+.hashme-logo {
+    max-height: 3rem !important;
+    height: 42px;
 }

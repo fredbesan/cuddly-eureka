@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { compose } from 'recompose'
 import { FaLongArrowAltRight } from 'react-icons/fa'
-import { Layout, Hero } from '../components/common'
-import workChatImg from '../images/undraw_status_update_jjgk.svg'
+import { Layout } from '../components/common'
+import { Link } from 'gatsby'
 import { MetaData } from '../components/common/meta'
 import {
     withAuthorization,
@@ -61,7 +61,7 @@ class HomePageBase extends Component {
                     <div className="column has-text-centered">
                         <h1 className="title is-1 is-spaced">#MásConMás</h1>
                         <h6 className="subtitle is-6">Un grupo de personas que comparten la misión de potenciar las causas sociales a traves del marketing.</h6>
-                        <a className="button is-large secondary-btn rounded">Descubrir Causas</a>
+                        <Link to="discover" className="button is-large secondary-btn rounded">Descubrir Causas</Link>
                     </div>
                     {/* <Messages users={this.state.users} /> */}
                 </div>
