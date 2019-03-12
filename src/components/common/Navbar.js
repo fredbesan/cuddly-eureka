@@ -143,7 +143,7 @@ class NavigationNonAuth extends React.Component {
                     Descubre
                                         </a>
                                         <span className="navbar-item">
-                                            <Link className="button button-signup btn-outlined is-bold btn-align primary-btn rounded" to="/signin">
+                                            <Link className="button button-signup btn-outlined is-bold btn-align secondary-btn rounded" to="/signin">
                                                 <span>
                                                     {` `}
                                                     <h1>Hola Mundo! </h1>

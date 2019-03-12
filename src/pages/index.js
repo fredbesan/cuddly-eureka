@@ -58,43 +58,10 @@ class HomePageBase extends Component {
         return (
             <Fragment>
                 <div className="columns is-desktop is-vcentered has-text-centered-mobile">
-                    <div className="column has-text-centered is-hidden-mobile">
-                        <div className="testimonials-slider">
-                            <input id="carousel-1" type="radio" name="carousel" defaultChecked/>
-                            <input id="carousel-2" type="radio" name="carousel"/>
-                            <input id="carousel-3" type="radio" name="carousel"/>
-                            <div className="carousel-slides">
-                                <div className="carousel-inner">
-                                    <div className="carousel-item">
-                                        <div className="testimonial-block">
-                                            <img className="avatar" src={workChatImg}/>
-                                            <h5 className="title is-5 is-spaced quote">Todos son bienvenidos a unirse y contribuir</h5>
-                                            <h6 className="subtitle is-6">Todos pueden contribuir a tu campaña abierta, lo único que necesitas es personas que crean en tu misión</h6>
-                                        </div>
-                                    </div>
-                                    <div className="carousel-item">
-                                        <div className="testimonial-block">
-                                            <img className="avatar" src={workChatImg}/>
-                                            <h5 className="title is-5 is-spaced">Todos son bienvenidos a unirse y contribuir</h5>
-                                            <h6 className="subtitle is-6">Todos pueden contribuir a tu campaña abierta, lo único que necesitas es personas que crean en tu misión</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="carousel-nav">
-                                <label htmlFor="carousel-1"></label>
-                                <label htmlFor="carousel-2"></label>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="column is-1">
-                    </div>
                     <div className="column has-text-centered">
-                        <h1 className="title is-1">Crea una colecta.</h1>
-                        <h5 className="title is-5 is-spaced">Un grupo de personas que comparten la misión de potenciar las causas sociales a traves del marketing</h5>
-                        <h6 className="subtitle is-6">Crea una colecta y libera el poder de la comunidad para darle vida a tu misión </h6>
-                        <a className="button is-large secondary-btn rounded">Apoyar causas</a>
+                        <h1 className="title is-1 is-spaced">Más con Más</h1>
+                        <h6 className="subtitle is-6">Un grupo de personas que comparten la misión de potenciar las causas sociales a traves del marketing.</h6>
+                        <a className="button is-large secondary-btn rounded">Descubrir Causas</a>
                     </div>
                     {/* <Messages users={this.state.users} /> */}
                 </div>
@@ -110,24 +77,7 @@ const HomePage = compose(
 )(HomePageBase)
 
 export default ({location, data}) => (
-    <Layout heroBody={HomePage}>
+    <Layout heroBody={HomePage} modifiers={`is-fullheight`}>
         <MetaData data={data} location={location} />
     </Layout>
 )
-// const Home = ({ data, location }) => (
-//         <>
-//             <MetaData data={this.props.data} location={this.props.location} />
-//             <Layout>
-//                 {/* <!-- Hero content: will be in the middle --> */}
-//             </Layout>
-//         </>
-// )
-
-// Home.propTypes = {
-//     data: PropTypes.shape({
-//         allGhostPost: PropTypes.object.isRequired,
-//     }).isRequired,
-//     location: PropTypes.shape({
-//         pathname: PropTypes.string.isRequired,
-//     }).isRequired,
-// }

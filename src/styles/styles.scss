@@ -1,6 +1,7 @@
 // Importing variables
 @import './variables.scss';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
 
 // Importing Bulma from node_modules
 @import '~bulma/bulma.sass';
@@ -104,7 +105,7 @@ input[name="carousel"] {
 }
 
 .hero .title {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Pacifico', cursive;
 }
 
 .is-white .title {
