@@ -40,7 +40,7 @@ const AppWithAuthentication = withAuthentication((
         ...rest
     }) => (
     <Fragment>
-        <div className={`hero ${modifiers}`}>
+        <div className={`hero ${modifiers}`} style={{ background: `#f0f0f0` }}>
             <Navbar />
             {Component ?
                 <div className="hero-body">

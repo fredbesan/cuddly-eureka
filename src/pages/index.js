@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { compose } from 'recompose'
 import { FaLongArrowAltRight } from 'react-icons/fa'
 import { Layout, Hero } from '../components/common'
-import workChatImg from '../images/undraw_work_chat_erdt.svg'
+import workChatImg from '../images/undraw_status_update_jjgk.svg'
 import { MetaData } from '../components/common/meta'
 import {
     withAuthorization,
@@ -90,17 +90,11 @@ class HomePageBase extends Component {
                     </div>
                     <div className="column is-1">
                     </div>
-                    <div className="column">
+                    <div className="column has-text-centered">
                         <h1 className="title is-1">Crea una colecta.</h1>
                         <h5 className="title is-5 is-spaced">Un grupo de personas que comparten la misión de potenciar las causas sociales a traves del marketing</h5>
                         <h6 className="subtitle is-6">Crea una colecta y libera el poder de la comunidad para darle vida a tu misión </h6>
-                        <a className="button is-primary is-rounded is-large is-flex-mobile">Crea una campaña</a>
-                        <a className="button is-primary is-text is-large is-inverted is-flex-mobile" style={{ textDecoration: `none` }}>
-                            <span>Saber más</span>
-                            <span className="icon">
-                                <FaLongArrowAltRight/>
-                            </span>
-                        </a>
+                        <a className="button is-large secondary-btn rounded">Apoyar causas</a>
                     </div>
                     {/* <Messages users={this.state.users} /> */}
                 </div>

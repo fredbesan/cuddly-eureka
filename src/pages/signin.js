@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 
 import { Layout } from '../components/common'
-import { Link } from "gatsby"
 import SignInForm, {
     SignInGoogle,
     SignInFacebook,
     SignInTwitter,
 } from '../components/common/SignIn'
+
 import { SignUpLink } from '../components/common/SignUp'
 import hashmeOrgIsoLogo from '../images/hashme-isologo.svg'
 

@@ -12,6 +12,6 @@ module.exports = {
 
     shortTitle: `Hashme.org`, // Used for App manifest e.g. Mobile Home Screen
     siteIcon: `favicon.png`, // Logo in /static dir used for SEO, RSS, and App manifest
-    backgroundColor: `#e9e9e9`, // Used for Offline Manifest
-    themeColor: `#E47AFF`, // Used for Offline Manifest
+    backgroundColor: `#7F00FF`, // Used for Offline Manifest
+    themeColor: `#7F00FF`, // Used for Offline Manifest
 }

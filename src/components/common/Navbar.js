@@ -55,7 +55,7 @@ class NavigationAuth extends React.Component {
                     </div>
                     <div id="navbarMenuHeroC" className={menuClass}>
                         <div className="navbar-end has-text-centered-mobile">
-                            <a href="/discover" className="navbar-item has-text-grey">
+                            <a href="/discover" className="navbar-item">
                     Descubre
                             </a>
                             <span className="navbar-item">
@@ -139,11 +139,11 @@ class NavigationNonAuth extends React.Component {
                                 </div>
                                 <div id="navbarMenuHeroC" className={menuClass}>
                                     <div className="navbar-end has-text-centered-mobile">
-                                        <a href="/discover" className="navbar-item has-text-grey">
+                                        <a href="/discover" className="navbar-item">
                     Descubre
                                         </a>
                                         <span className="navbar-item">
-                                            <Link className="button is-secondary is-rounded is-outlined" to="/signin">
+                                            <Link className="button button-signup btn-outlined is-bold btn-align primary-btn rounded" to="/signin">
                                                 <span>
                                                     {` `}
                                                     <h1>Hola Mundo! </h1>
