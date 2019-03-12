@@ -1,5 +1,4 @@
 import React from 'react'
-import classNames from 'classnames'
 import hashmeOrgLogo from '../../images/logo.svg'
 import hashmeOrgIsoLogo from '../../images/isoLogo.svg'
 import { FaAngleDown } from 'react-icons/fa'
@@ -30,17 +29,6 @@ class NavigationAuth extends React.Component {
     }
 
     render() {
-        const burgerClass = classNames({
-            "navbar-burger": true,
-            burger: true,
-            "is-active": this.state.isActive,
-        })
-
-        const menuClass = classNames({
-            "navbar-menu": true,
-            "is-active": this.state.isActive,
-        })
-
         return (
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="container">
@@ -49,22 +37,27 @@ class NavigationAuth extends React.Component {
                             <img className="hashme-logo is-hidden-mobile" width="112" height="24" src={hashmeOrgLogo} alt="Hashme Core Logo"/>
                             <img className="hashme-logo is-hidden-desktop is-hidden-tablet" src={hashmeOrgIsoLogo} alt="Hashme Core Logo"/>
                         </a>
-                        <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <a role="button"
+                            className={`navbar-burger ${this.state.isActive? `is-active`: ``}`}
+                            aria-label="menu"
+                            aria-expanded="false"
+                            onClick={this.handleClick}
+                        >
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
                         </a>
                     </div>
-                    <div className="navbar-menu">
+                    <div className={`navbar-menu has-text-centered ${this.state.isActive? `is-active`: ``}`}>
                         <div className="navbar-start">
                             <a href="/discover" className="navbar-item">
                                 Descubre
+                                <div className="navbar-divider"></div>
                             </a>
                         </div>
                         <div className="navbar-end">
                             <div className="navbar-item">
-                                <div className="navbar-divider"></div>
-                                <div className="buttons">
+                                <div className="buttons is-centered">
                                     <a href="/signup" className="button button-signup btn-outlined is-bold btn-align secondary-btn rounded">
                                         <strong>Hola Mundo!</strong>
                                     </a>
