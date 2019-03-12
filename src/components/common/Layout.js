@@ -1,65 +1,40 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
-import { Navbar } from '.'
-// Styles
-import '../../styles/styles.scss'
+import React, { Component, Fragment } from 'react'
 
-/**
-* Main layout component
-*
-* The Layout component wraps around each page and template.
-* It also provides the header, footer as well as the main
-* styles, and meta data for each page.
-*
-*/
-const DefaultLayout = ({ data, children, bodyClass }) => {
-    const site = data.allGhostSettings.edges[0].node
+import Navbar from './Navbar'
+import getFirebase, { FirebaseContext } from './Firebase'
+import withAuthentication from './Session/withAuthentication'
 
-    return (
-    <>
-        <Helmet>
-            <html lang={site.lang} />
-            <body className={bodyClass} />
-        </Helmet>
-        <Navbar/>
-        { children }
-    </>
-    )
+class Layout extends Component {
+  state = {
+      firebase: null,
+  };
+
+  componentDidMount() {
+      const app = import(`firebase/app`)
+      const auth = import(`firebase/auth`)
+      const database = import(`firebase/database`)
+
+      Promise.all([app, auth, database]).then((values) => {
+          const firebase = getFirebase(values[0])
+
+          this.setState({ firebase })
+      })
+  }
+
+  render() {
+      return (
+          <FirebaseContext.Provider value={this.state.firebase}>
+              <AppWithAuthentication {...this.props} />
+          </FirebaseContext.Provider>
+      )
+  }
 }
 
-DefaultLayout.propTypes = {
-    children: PropTypes.node.isRequired,
-    bodyClass: PropTypes.string,
-    isHome: PropTypes.bool,
-    data: PropTypes.shape({
-        allGhostSettings: PropTypes.object.isRequired,
-    }).isRequired,
-}
+const AppWithAuthentication = withAuthentication(({ children }) => (
+    <Fragment>
+        <Navbar />
+        {children}
+    </Fragment>
+))
 
-const DefaultLayoutSettingsQuery = props => (
-    <StaticQuery
-        query={graphql`
-            query GhostSettings {
-                allGhostSettings {
-                    edges {
-                        node {
-                            ...GhostSettingsFields
-                        }
-                    }
-                }
-                file(relativePath: {eq: "ghost-icon.png"}) {
-                    childImageSharp {
-                        fixed(width: 30, height: 30) {
-                            ...GatsbyImageSharpFixed
-                        }
-                    }
-                }
-            }
-        `}
-        render={data => <DefaultLayout data={data} {...props} />}
-    />
-)
-
-export default DefaultLayoutSettingsQuery
+export default Layout

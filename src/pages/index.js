@@ -1,9 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { Component, Fragment } from 'react'
+import { compose } from 'recompose'
 import { FaLongArrowAltRight } from 'react-icons/fa'
 import { Layout, Hero } from '../components/common'
 import workChatImg from '../images/undraw_work_chat_erdt.svg'
 import { MetaData } from '../components/common/meta'
+import {
+    withAuthorization,
+    withEmailVerification,
+} from '../components/common/Session'
+import { withFirebase } from '../components/common/Firebase'
+// import Messages from '../components/Messages'
 
 /**
 * Main index page (home page)
@@ -13,18 +19,51 @@ import { MetaData } from '../components/common/meta'
 * in /utils/siteConfig.js under `postsPerPage`.
 *
 */
-const Home = ({ data, location }) => (
-        <>
-            <MetaData data={data} location={location} />
-            <Layout>
-                {/* <!-- Hero content: will be in the middle --> */}
+
+class HomePageBase extends Component {
+    _initFirebase = false;
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            users: null,
+        }
+    }
+
+    firebaseInit = () => {
+        if (this.props.firebase && !this._initFirebase) {
+            this._initFirebase = true
+
+            this.props.firebase.users().on(`value`, (snapshot) => {
+                this.setState({
+                    users: snapshot.val(),
+                })
+            })
+        }
+    }
+
+    componentDidMount() {
+        this.firebaseInit()
+    }
+
+    componentDidUpdate() {
+        this.firebaseInit()
+    }
+
+    componentWillUnmount() {
+        this.props.firebase.users().off()
+    }
+
+    render() {
+        return (
+            <Fragment>
                 <Hero>
                     <div className="hero-body">
                         <div className="container">
                             <div className="columns is-desktop is-vcentered has-text-centered-mobile">
                                 <div className="column has-text-centered is-hidden-mobile">
                                     <div className="testimonials-slider">
-                                        <input id="carousel-1" type="radio" name="carousel" checked/>
+                                        <input id="carousel-1" type="radio" name="carousel" defaultChecked/>
                                         <input id="carousel-2" type="radio" name="carousel"/>
                                         <input id="carousel-3" type="radio" name="carousel"/>
                                         <div className="carousel-slides">
@@ -74,17 +113,38 @@ const Home = ({ data, location }) => (
                         </div>
                     </div>
                 </Hero>
-            </Layout>
-        </>
-)
-
-Home.propTypes = {
-    data: PropTypes.shape({
-        allGhostPost: PropTypes.object.isRequired,
-    }).isRequired,
-    location: PropTypes.shape({
-        pathname: PropTypes.string.isRequired,
-    }).isRequired,
+                {/* <Messages users={this.state.users} /> */}
+            </Fragment>
+        )
+    }
 }
 
-export default Home
+const condition = authUser => !!authUser;
+
+const HomePage = compose(
+    withFirebase,
+)(HomePageBase)
+
+export default ({location, data}) => (
+    <Layout>
+        <MetaData data={data} location={location} />
+        <HomePage />
+    </Layout>
+)
+// const Home = ({ data, location }) => (
+//         <>
+//             <MetaData data={this.props.data} location={this.props.location} />
+//             <Layout>
+//                 {/* <!-- Hero content: will be in the middle --> */}
+//             </Layout>
+//         </>
+// )
+
+// Home.propTypes = {
+//     data: PropTypes.shape({
+//         allGhostPost: PropTypes.object.isRequired,
+//     }).isRequired,
+//     location: PropTypes.shape({
+//         pathname: PropTypes.string.isRequired,
+//     }).isRequired,
+// }
