@@ -59,7 +59,7 @@ class HomePageBase extends Component {
             <Fragment>
                 <div className="columns is-desktop is-vcentered has-text-centered-mobile">
                     <div className="column has-text-centered">
-                        <h1 className="title is-1 is-spaced">Más con Más</h1>
+                        <h1 className="title is-1 is-spaced">#MásConMás</h1>
                         <h6 className="subtitle is-6">Un grupo de personas que comparten la misión de potenciar las causas sociales a traves del marketing.</h6>
                         <a className="button is-large secondary-btn rounded">Descubrir Causas</a>
                     </div>
