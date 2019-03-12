@@ -49,7 +49,27 @@ class NavigationAuth extends React.Component {
                             <img className="hashme-logo is-hidden-mobile" width="112" height="24" src={hashmeOrgLogo} alt="Hashme Core Logo"/>
                             <img className="hashme-logo is-hidden-desktop is-hidden-tablet" src={hashmeOrgIsoLogo} alt="Hashme Core Logo"/>
                         </a>
-                        <div className="navbar-menu">
+                        <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div className="navbar-menu">
+                        <div className="navbar-start">
+                            <a href="/discover" className="navbar-item">
+                                Descubre
+                            </a>
+                        </div>
+                        <div className="navbar-end">
+                            <div className="navbar-item">
+                                <div className="navbar-divider"></div>
+                                <div className="buttons">
+                                    <a href="/signup" className="button button-signup btn-outlined is-bold btn-align secondary-btn rounded">
+                                        <strong>Hola Mundo!</strong>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -108,7 +128,6 @@ class NavigationNonAuth extends React.Component {
                                                     <h1>Hola Mundo! </h1>
                                                 </span>
                                             </Link>
-
                                         </span>
                                     </div>
                                 </div>
