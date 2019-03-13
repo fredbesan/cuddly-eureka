@@ -61,7 +61,7 @@ class HomePageBase extends Component {
                     <div className="column has-text-centered">
                         <h1 className="title is-1 is-spaced">#MásConMás</h1>
                         <h6 className="subtitle is-6">Un grupo de personas que comparten la misión de potenciar las causas sociales a traves del marketing.</h6>
-                        <Link to="discover" className="button is-large secondary-btn rounded">Descubrir Causas</Link>
+                        <Link to="discover" className="button is-large is-primary is-rounded">Descubrir Causas</Link>
                     </div>
                     {/* <Messages users={this.state.users} /> */}
                 </div>

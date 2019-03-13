@@ -20,6 +20,40 @@
     font-weight: 400;
 }
 
+.themes-tabs li a:hover,
+
+.themes-tabs li a.is-active {
+    color: #fff;
+    border-bottom: 3px solid #fff !important;
+}
+
+.hero .tabs {
+    li {
+        position: relative;
+        a {
+            color: #e2e2e2 !important;
+            font-weight: 500;
+            padding-bottom: 20px;
+            border-bottom: 3px solid transparent !important;
+            &.is-active, &:hover{
+                color: #fff;
+                border-bottom: 3px solid #fff !important;
+            }
+        }
+    }
+}
+
+.hero-body .title.big-title {
+    color: #444F60;
+    z-index: 999;
+    font-size: 4rem;
+}
+
+@media (max-width: 768px) {
+    .big-title {
+        font-size: 3rem !important;
+    }
+}
 .is-form-page .container {
     .avatar {
       width: 84px;

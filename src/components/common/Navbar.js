@@ -58,7 +58,7 @@ class NavigationAuth extends React.Component {
                         <div className="navbar-end">
                             <div className="navbar-item">
                                 <div className="buttons is-centered">
-                                    <a href="/signup" className="button button-signup btn-outlined is-bold btn-align secondary-btn rounded">
+                                    <a href="/signup" className="button button-signup btn-outlined is-bold btn-align primary-btn rounded">
                                         <strong>Hola Mundo!</strong>
                                     </a>
                                 </div>

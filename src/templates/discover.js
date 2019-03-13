@@ -17,7 +17,7 @@ const Discover = ({ data, location }) => {
     const posts = data.allGhostPost.edges
     const tabs = [
         { active: true, text: `Overview` },
-        { active: true, text: `Modifiers` },
+        { active: false, text: `Modifiers` },
         { active: false, text: `Grid` },
         { active: false, text: `Elements` },
         { active: false, text: `Components` },
@@ -29,7 +29,7 @@ const Discover = ({ data, location }) => {
             <MetaData
                 data={data}
                 location={location}/>
-            <Layout heroBody={HeroBody} tabs={tabs} modifiers={'is-medium has-text-centered'}>
+            <Layout heroBody={HeroBody} tabs={tabs} modifiers={`is-medium has-text-centered is-primary`}>
                 <div className="section">
                     <div className="container">
                         <div className="columns is-multiline">
@@ -49,8 +49,8 @@ const Discover = ({ data, location }) => {
 
 const HeroBody = () => (
     <>
-        <h1 className="title is-spaced is-size-2-desktop is-size-3-mobile">Descubre colectas asombrosas para apoyar</h1>
-        <h2 className="subtitle is-size-3-desktop is-size-5-mobile">Hagamos grandes cosas juntos.</h2>
+        <h1 className="title is-spaced big-title has-text-white	">Colectas</h1>
+        <h2 className="subtitle is-4-desktop is-5-mobile">Descubre causas asombrosas para apoyar</h2>
     </>
 )
 

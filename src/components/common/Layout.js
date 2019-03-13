@@ -40,7 +40,7 @@ const AppWithAuthentication = withAuthentication((
         ...rest
     }) => (
     <Fragment>
-        <div className={`hero ${modifiers}`} style={{ background: `#f0f0f0` }}>
+        <div className={`hero ${modifiers}`}>
             <Navbar />
             {Component ?
                 <div className="hero-body">
@@ -56,7 +56,7 @@ const AppWithAuthentication = withAuthentication((
                     <div className="container">
                         <ul>
                             {tabs.map(({ active, text }, index) => (
-                                <li key={index} className={`${active? `is-active`: null}`}><a>{text}</a></li>
+                                <li key={index} className={`${active? `is-active`: ""}`}><a>{text}</a></li>
                             ))}
                         </ul>
                     </div>
