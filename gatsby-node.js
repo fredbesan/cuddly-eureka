@@ -17,6 +17,7 @@ exports.createPages = ({ graphql, actions }) => {
     const createIssues = new Promise((resolve, reject) => {
         const issueTemplate = path.resolve(`./src/templates/issue.js`)
         const discoverTemplate = path.resolve(`./src/templates/discover.js`)
+        const motiveTemplate = path.resolve(`./src/templates/motive.js`)
         const ContributeComponent = path.resolve(`./src/components/contribute.js`)
         resolve(
             graphql(`
@@ -91,6 +92,13 @@ exports.createPages = ({ graphql, actions }) => {
                     component: discoverTemplate,
                     pathPrefix: `/discover`,
                 })
+                paginate({
+                    createPage,
+                    items: items,
+                    itemsPerPage: config.postsPerPage,
+                    component: motiveTemplate,
+                    pathPrefix: `/motive`,
+                })
 
                 return resolve()
             })
@@ -100,29 +108,29 @@ exports.createPages = ({ graphql, actions }) => {
     return Promise.all([createIssues])
 }
 
-// Implement the Gatsby API “onCreatePage”. This is
-// called after every page is created.
-exports.onCreatePage = async ({ page, actions }) => {
-    const { createPage } = actions
-    console.log(page.path)
-    const AppMatchs = page.path.match(/^\/app\//)
-    const ContributeMatchs = page.path.match(/^\/.*\/contribute/)
-    // const DonateMatchs = page.path.match(/^\/.*\/donate/)
-    // page.matchPath is a special key that's used for matching pages
-    // only on the client.
-    if (AppMatchs){
-        if (AppMatchs.input){
-            page.matchPath = `/app/*`
-            // Update the page.
-            createPage(page)
-        }
-    }
+// // Implement the Gatsby API “onCreatePage”. This is
+// // called after every page is created.
+// exports.onCreatePage = async ({ page, actions }) => {
+//     const { createPage } = actions
+//     console.log(page.path)
+//     const AppMatchs = page.path.match(/^\/app\//)
+//     const ContributeMatchs = page.path.match(/^\/.*\/contribute/)
+//     // const DonateMatchs = page.path.match(/^\/.*\/donate/)
+//     // page.matchPath is a special key that's used for matching pages
+//     // only on the client.
+//     if (AppMatchs){
+//         if (AppMatchs.input){
+//             page.matchPath = `/app/*`
+//             // Update the page.
+//             createPage(page)
+//         }
+//     }
 
-    if (ContributeMatchs){
-        if (ContributeMatchs.input){
-            page.matchPath = `${page.path}*`
-            // Update the page.
-            createPage(page)
-        }
-    }
-}
+//     if (ContributeMatchs){
+//         if (ContributeMatchs.input){
+//             page.matchPath = `${page.path}*`
+//             // Update the page.
+//             createPage(page)
+//         }
+//     }
+// }

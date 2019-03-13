@@ -65,8 +65,8 @@ class NavigationAuth extends React.Component {
                                 Crea
                                 <div className="navbar-divider"></div>
                             </a>
-                            <a href="/collect" className="navbar-item">
-                                Colecciona
+                            <a href="/motive" className="navbar-item">
+                                Motiva
                                 <div className="navbar-divider"></div>
                             </a>
                             <a href="/collaborate" className="navbar-item">
@@ -94,7 +94,7 @@ class NavigationAuth extends React.Component {
                                                 Configuración
                                             </a>
                                             <hr className="navbar-divider"/>
-                                            <a className={`navbar-item ${this.menuClass}`} href="/referals">
+                                            <a className={`navbar-item ${this.menuClass}`} href="/referal">
                                                 Invita
                                             </a>
                                             <span className={`navbar-item is-active ${this.menuClass}`}>
