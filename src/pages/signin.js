@@ -30,7 +30,7 @@ const SignInPage = () => (
                     <div className="container">
                         <div className="columns">
                             <div className="column"></div>
-                            <div className="column is-5">
+                            <div className="column is-fullwidth-mobile is-7">
                                 <SignInForm />
                                 <div className="section forgot-password animated preFadeInLeft fadeInLeft">
                                     <p className="has-text-centered">
