@@ -10,6 +10,7 @@ import SignInForm, {
 import { SignUpLink } from '../components/common/SignUp'
 import hashmeOrgIsoLogo from '../images/hashme-isologo.svg'
 import hashmeOrgLogoGray from '../images/logo-grayscale.svg'
+import dreamderImage from '../images/undraw_dreamer.svg'
 
 const SignInPage = () => (
     <div className="login-wrapper columns is-gapless">
@@ -22,7 +23,7 @@ const SignInPage = () => (
                         </a>
                     </div>
                     <div className="no-account-link has-text-centered">
-                        <a href="/signin">No tienes una cuenta ? </a>
+                        <a href="/signup">No tienes una cuenta ? </a>
                     </div>
                 </div>
                 <div className="hero-body">
@@ -52,6 +53,7 @@ const SignInPage = () => (
                         </div>
                     </div>
                 </div>
+                <img className="login-city" src={dreamderImage} alt="A dreamer image"/>
             </div>
         </div>
         {/* <SignInForm /> */}
