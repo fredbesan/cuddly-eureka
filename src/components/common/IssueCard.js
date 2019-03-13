@@ -12,9 +12,9 @@ const IssueCard = ({ post }) => {
     return (
         <Link to={url} className="box">
             <div className="content">
-                <figure className="image">
+                {/* <figure className="image">
                     <img className="is-issue-icon" src={AdoptaUnHincha}/>
-                </figure>
+                </figure> */}
                 <h1 className="title is-6">{post.title}</h1>
                 <p className="subtitle is-6">{post.primary_author.name}</p>
                 <p>{post.excerpt}</p>

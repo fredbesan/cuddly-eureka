@@ -60,6 +60,18 @@ class NavigationAuth extends React.Component {
                                 Descubre
                                 <div className="navbar-divider"></div>
                             </a>
+                            <a href="/create" className="navbar-item">
+                                Crea
+                                <div className="navbar-divider"></div>
+                            </a>
+                            <a href="/collect" className="navbar-item">
+                                Colecciona
+                                <div className="navbar-divider"></div>
+                            </a>
+                            <a href="/colabora" className="navbar-item">
+                                Colabora
+                                <div className="navbar-divider"></div>
+                            </a>
                         </div>
                         <div className="navbar-end">
                             <div className="navbar-item">
