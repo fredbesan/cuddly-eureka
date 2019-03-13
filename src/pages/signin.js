@@ -23,7 +23,7 @@ const SignInPage = () => (
                         </a>
                     </div>
                     <div className="no-account-link has-text-centered">
-                        <a href="/signup">No tienes una cuenta ? </a>
+                        <a href="/signup">¿ No tienes una cuenta ? </a>
                     </div>
                 </div>
                 <div className="hero-body">
