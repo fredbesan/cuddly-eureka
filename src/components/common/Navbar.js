@@ -13,7 +13,7 @@ import SignOutButton from '../common/SignOut'
 const Navbar = ({ navColor }) => (
     <AuthUserContext.Consumer>
         {
-            authUser => !authUser ? (<NavigationAuth navColor={navColor} authUser={authUser} />) : (<NavigationNonAuth />)
+            authUser => <NavigationAuth navColor={navColor} authUser={authUser} />
         }
     </AuthUserContext.Consumer>
 )
@@ -24,8 +24,8 @@ class NavigationAuth extends React.Component {
             isActive: false,
         }
 
-        this.logoImg = this.props.navColor == "white" ? hashmeOrgLogoWhite : hashmeOrgLogo
-        this.isoLogoImg = this.props.navColor == "white" ? hashmeOrgIsoLogoWhite : hashmeOrgIsoLogo
+        this.logoImg = this.props.navColor === "white" ? hashmeOrgLogoWhite : hashmeOrgLogo
+        this.isoLogoImg = this.props.navColor === "white" ? hashmeOrgIsoLogoWhite : hashmeOrgIsoLogo
     }
 
     handleClick = () => {
@@ -85,68 +85,6 @@ class NavigationAuth extends React.Component {
                     </div>
                 </div>
             </nav>
-        )
-    }
-}
-class NavigationNonAuth extends React.Component {
-    state = {
-        isActive: false,
-    }
-
-    handleClick = () => {
-        this.setState((state) => {
-            return { isActive: !state.isActive }
-        })
-    }
-
-    render() {
-        const burgerClass = classNames({
-            "navbar-burger": true,
-            burger: true,
-            "is-active": this.state.isActive,
-        })
-
-        const menuClass = classNames({
-            "navbar-menu": true,
-            "is-active": this.state.isActive,
-        })
-
-        return (
-            <div className="navbar-wrapper">
-                <div className="hero-head">
-                    <div className="container">
-                        <nav className="navbar" role="navigation" aria-label="main navigation">
-                            <div className="container">
-                                <div className="navbar-brand">
-                                    <a href="/" className="navbar-item">
-                                        <img src={hashmeOrgLogo} alt="Logo"/>
-                                    </a>
-                                    <span className={burgerClass} onClick={this.handleClick} data-target="navbarMenuHeroC">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </span>
-                                </div>
-                                <div id="navbarMenuHeroC" className={menuClass}>
-                                    <div className="navbar-end has-text-centered-mobile">
-                                        <a href="/discover" className="navbar-item">
-                    Descubre
-                                        </a>
-                                        <span className="navbar-item">
-                                            <Link className="button button-signup btn-outlined is-bold btn-align secondary-btn rounded" to="/signin">
-                                                <span>
-                                                    {` `}
-                                                    <h1>Hola Mundo! </h1>
-                                                </span>
-                                            </Link>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
         )
     }
 }
