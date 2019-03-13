@@ -83,20 +83,20 @@ class NavigationAuth extends React.Component {
                                             </strong>
                                         </a>
                                         <div className="navbar-dropdown is-boxed">
-                                            <a className="navbar-item" href="/account">
+                                            <a className="navbar-item has-text-primary" href="/account">
                                                 Mi cuenta
                                             </a>
-                                            <a className="navbar-item" href="/account/wallet">
+                                            <a className="navbar-item has-text-primary" href="/account/wallet">
                                                 Mi Billetera
                                             </a>
-                                            <a className="navbar-item" href="/account/settings">
+                                            <a className="navbar-item has-text-primary" href="/account/settings">
                                                 Configuración
                                             </a>
                                             <hr className="navbar-divider"/>
-                                            <a className="navbar-item" href="/referals">
+                                            <a className="navbar-item has-text-primary" href="/referals">
                                                 Invita
                                             </a>
-                                            <a className="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
+                                            <a className="navbar-item has-text-primary is-active" href="https://bulma.io/documentation/components/breadcrumb/">
                                                 Salir
                                             </a>
                                         </div>
