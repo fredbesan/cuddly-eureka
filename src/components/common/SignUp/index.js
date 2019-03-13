@@ -90,69 +90,48 @@ class SignUpFormBase extends Component {
 
       return (
           <form method="post" onSubmit={this.onSubmit}>
-              <div className="columns is-centered">
-                  <div className="column is-half">
-                      <div className="field">
-                          <label className="label">Usuario</label>
-                          <div className="control is-expanded">
-                              <input
-                                  name="username"
-                                  value={username}
-                                  onChange={this.onChange}
-                                  type="text"
-                                  className="input is-large"
-                                  placeholder="Nombre Completo"/>
-                          </div>
+              <div className="login-form animated preFadeInLeft fadeInLeft">
+                  <div className="field">
+                      <div className="control is-expanded">
+                          <input
+                              name="username"
+                              value={username}
+                              onChange={this.onChange}
+                              type="text"
+                              className="input is-large"
+                              placeholder="Nombre Completo"/>
                       </div>
                   </div>
-                  <div className="column is-half">
-                      <div className="field">
-                          <label className="label">Email</label>
-                          <div className="control is-expanded">
-                              <input
-                                  name="email"
-                                  value={email}
-                                  onChange={this.onChange}
-                                  type="text"
-                                  className="input is-large" placeholder="Ingresar email"/>
-                          </div>
+
+                  <div className="field">
+                      <div className="control is-expanded">
+                          <input
+                              name="email"
+                              value={email}
+                              onChange={this.onChange}
+                              type="text"
+                              className="input is-large" placeholder="Ingresar email"/>
                       </div>
                   </div>
-              </div>
-              <div className="columns is-centered">
-                  <div className="column is-half">
-                      <div className="field">
-                          <label className="label">Contraseña</label>
-                          <div className="control is-expanded">
-                              <input
-                                  name="passwordOne"
-                                  value={passwordOne}
-                                  onChange={this.onChange}
-                                  type="password"
-                                  className="input is-large" placeholder="Ingresar contraseña"/>
-                          </div>
-                      </div>
+                  <div className="field">
+                      <input
+                          name="passwordOne"
+                          value={passwordOne}
+                          onChange={this.onChange}
+                          type="password"
+                          className="input is-large" placeholder="Ingresar contraseña"/>
                   </div>
-                  <div className="column is-half">
-                      <div className="field">
-                          <label className="label">Repetir contraseña</label>
-                          <div className="control is-expanded">
-                              <input
-                                  name="passwordTwo"
-                                  value={passwordTwo}
-                                  onChange={this.onChange}
-                                  type="password"
-                                  className="input is-large" placeholder="Confirmar contraseña" />
-                          </div>
-                      </div>
+                  <div className="field">
+                      <input
+                          name="passwordTwo"
+                          value={passwordTwo}
+                          onChange={this.onChange}
+                          type="password"
+                          className="input is-large" placeholder="Confirmar contraseña" />
                   </div>
-              </div>
-              <div className="columns is-centered">
-                  <div className="column is-one-third">
-                      <div className="field">
-                          <div className="control">
-                              <button disabled={isInvalid} type="submit" className="button is-primary is-outlined is-medium is-fullwidth is-rounded">Empezar</button>
-                          </div>
+                  <div className="field">
+                      <div className="control">
+                          <button disabled={isInvalid} type="submit" className="button is-primary is-outlined is-medium is-fullwidth is-rounded">Empezar</button>
                       </div>
                   </div>
               </div>
