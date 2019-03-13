@@ -12,13 +12,13 @@ const SignUpPage = () => (
         <div className="column is-4">
             <div className="hero is-fullheight">
                 <div className="hero-head">
-                    <div className="section has-text-centered">
+                    <div className="section intro-section has-text-centered">
                         <a href="/">
                             <img className="top-logo" src={hashmeOrgLogoGray} alt="Hashme Core Logo"/>
                         </a>
-                    </div>
-                    <div id="signup-intro" className="intro-text has-text-centered animated preFadeInLeft fadeInLeft">
-                        <div className="intro-sub subtitle is-6">Únete a la Plataforma Marketing Non-Profit más grande del mundo.</div>
+                        <div id="signup-intro" className="intro-text has-text-centered animated preFadeInLeft fadeInLeft">
+                            <div className="intro-sub subtitle is-6">Únete a la Plataforma Marketing Non-Profit más grande del mundo.</div>
+                        </div>
                     </div>
                 </div>
                 <div className="hero-body">
@@ -41,7 +41,7 @@ const SignUpPage = () => (
                         <img className="mockup" src={dreamderImage} alt="A platform mockup"/>
                         <div className="already">
                             <span>¿Ya tienes una cuenta ?</span>
-                            <a href="https://cssninja.io/login" className="button btn-align btn-outlined is-bold light-btn rounded">Inicia</a>
+                            <a href="/signin" className="button btn-align btn-outlined is-bold light-btn rounded">Inicia</a>
                         </div>
                         {/* <div className="has-text-centered">
                             <a href="/signup" className="button is-primary is-inverted is-outlined is-large is-rounded">

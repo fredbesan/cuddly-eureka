@@ -88,6 +88,10 @@
     padding: 0 20px;
   }
 
+.is-bold {
+    border-width: 2px;
+}
+
 .select:not(.is-multiple):not(.is-loading)::after {
     top: 50%;
     border-color: $secondary;

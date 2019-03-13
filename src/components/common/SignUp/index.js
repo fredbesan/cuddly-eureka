@@ -131,7 +131,7 @@ class SignUpFormBase extends Component {
                   </div>
                   <div className="field">
                       <div className="control">
-                          <button disabled={isInvalid} type="submit" className="button is-primary is-outlined is-medium is-fullwidth is-rounded">Empezar</button>
+                          <button disabled={isInvalid} type="submit" className="button is-primary is-outlined is-medium is-fullwidth is-rounded is-bold">Comienza</button>
                       </div>
                   </div>
               </div>
