@@ -26,6 +26,7 @@ class NavigationAuth extends React.Component {
 
         this.logoImg = this.props.navColor === "white" ? hashmeOrgLogoWhite : hashmeOrgLogo
         this.isoLogoImg = this.props.navColor === "white" ? hashmeOrgIsoLogoWhite : hashmeOrgIsoLogo
+        this.menuClass = this.props.navColor === "white" ? `has-text-primary` : ""
     }
 
     handleClick = () => {
@@ -83,22 +84,22 @@ class NavigationAuth extends React.Component {
                                             </strong>
                                         </a>
                                         <div className="navbar-dropdown is-boxed">
-                                            <a className="navbar-item has-text-primary" href="/account">
+                                            <a className={`navbar-item ${this.menuClass}`} href="/account">
                                                 Mi cuenta
                                             </a>
-                                            <a className="navbar-item has-text-primary" href="/account/wallet">
+                                            <a className={`navbar-item ${this.menuClass}`} href="/account/wallet">
                                                 Mi Billetera
                                             </a>
-                                            <a className="navbar-item has-text-primary" href="/account/settings">
+                                            <a className={`navbar-item ${this.menuClass}`} href="/account/settings">
                                                 Configuración
                                             </a>
                                             <hr className="navbar-divider"/>
-                                            <a className="navbar-item has-text-primary" href="/referals">
+                                            <a className={`navbar-item ${this.menuClass}`} href="/referals">
                                                 Invita
                                             </a>
-                                            <a className="navbar-item has-text-primary is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-                                                Salir
-                                            </a>
+                                            <span className={`navbar-item is-active ${this.menuClass}`}>
+                                                <SignOutButton/>
+                                            </span>
                                         </div>
                                     </div>
                                     :
