@@ -32,7 +32,8 @@ const SignInPage = () => (
                             <div className="column is-5">
                                 <SignInForm />
                             </div>
-                            <div className="column"></div>
+                            <div className="column">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -40,6 +41,17 @@ const SignInPage = () => (
         </div>
         <div className="column login-column is-5 is-hidden-mobile hero-banner">
             <div className="hero is-fullheight is-primary is-relative">
+                <div className="columns has-text-centered">
+                    <div className="column">
+                        <h2 className="title is-2 has-text-light">Empieza a hoy</h2>
+                        <h3 className="subtitle is-5 has-text-light">Únete a la Plataforma Marketing Non-Profit más grande del mundo.</h3>
+                        <div className="has-text-centered">
+                            <a className="button is-primary is-inverted is-outlined is-large is-rounded">
+                                Regístrate ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         {/* <SignInForm /> */}
