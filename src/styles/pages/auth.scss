@@ -1,0 +1,190 @@
+/*! _auth.scss | Bulkit | CSS Ninja */
+
+/* ==========================================================================
+Login and Sign up shared styles
+========================================================================== */
+
+//Static logo
+.top-logo {
+    height: 80px;
+}
+
+//Top section below logo
+.intro-section {
+    padding-bottom: 10px !important;
+    .intro-text {
+        .intro-title  {
+            margin: 30px 0 0 0;
+            font-size: 18px;
+            color: $primary;
+        }
+        .intro-sub {
+            padding: 20px 50px 0 30px;
+            font-size: 14px;
+            color: $title-grey;
+        }
+    }
+}
+
+//Icon positionning
+.icon.user,
+.icon.password {
+    margin: 5px 10px 0 0;
+}
+
+//login control spacing
+.login {
+    padding-top: 20px;
+    .is-bold {
+        border-width: 2px;
+    }
+}
+
+//Suppressing padding
+.column.login-column {
+    padding: 0 !important;
+}
+
+//Wrapper
+.login-wrapper {
+    overflow: hidden !important;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    &.is-gapless:not(:last-child) {
+        margin-bottom: 0 !important;
+    }
+}
+
+//Login hero
+.hero.login-hero, .hero.signup-hero {
+    background-position: center;
+    background-size:auto;
+}
+
+//Signup hero
+#signup-banner .hero {
+    background: url('https://source.unsplash.com/DWui9DmfCXA/');
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: screen;
+}
+
+//Hero title
+.hero-banner {
+    .title {
+        padding: 25px;
+        padding-top: 25%;
+    }
+    .subtitle {
+        padding: 0 30px;
+    }
+    img.login-city {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 0;
+    }
+    .button {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+//Hero title
+.signup-hero {
+    .title {
+        padding: 25px;
+        padding-top: 15%;
+    }
+    .subtitle {
+        padding: 0 22%;
+    }
+    img.mockup {
+        position: absolute;
+        bottom: -15%;
+        left: 0;
+        right: 0;
+        z-index: 0;
+    }
+    .already {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px;
+        span {
+            margin-right: 15px;
+            color: $white;
+        }
+        a {
+            min-width: 80px;
+        }
+    }
+}
+
+//Side links (forgot password, don't have an account etc...)
+.forgot, .no-account, .return {
+    color: $title-grey !important;
+    transition: opacity 0.5s;
+    &:hover {
+        opacity: 0.8;
+        color: $primary !important;
+    }
+    &.is-secondary {
+        color: $secondary !important;
+    }
+    &.is-accent {
+        color: $accent !important;
+    }
+}
+
+//Forgot password
+.forgot-password a {
+    color: #95A5A6;
+    font-weight: normal;
+    padding-right: 20px;
+    transition: all 0.6s;
+    &:hover {
+        color: $primary;
+    }
+}
+
+.no-account-link  {
+    a {
+        color: $title-grey;
+        font-weight: 500;
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+//Welcome
+.welcome-card {
+    border-radius: 8px;
+    .card-head {
+        img {
+            max-height: 90px;
+            max-width: 90px;
+            display: block;
+            border-radius: 50% !important;
+            margin: 0 auto;
+        }
+    }
+    .subtitle {
+        font-family: Pacifico, cursive;
+    }
+}
+
+//Give some space on mobile
+@media (max-width: 767px) {
+    .welcome-card {
+        .card-body {
+            padding: 30px 0 !important;
+        }
+    }
+}

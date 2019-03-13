@@ -38,34 +38,39 @@ const AppWithAuthentication = withAuthentication((
         modifiers,
         children,
         navColor,
+        clean,
         ...rest
     }) => (
     <Fragment>
-        <div className={`hero ${modifiers}`}>
-            <Navbar navColor={navColor}/>
-            {Component ?
-                <div className="hero-body">
-                    <div className="container">
-                        <Component {...rest} />
+        {
+            clean ? <>{ children }</> :
+            <>
+                <div className={`hero ${modifiers}`}>
+                    <Navbar navColor={navColor}/>
+                    {Component ?
+                        <div className="hero-body">
+                            <div className="container">
+                                <Component {...rest} />
+                            </div>
+                        </div>
+                        : null
+                    }
+
+                    <div className="hero-foot">
+                        <nav className="tabs is-centered">
+                            <div className="container">
+                                <ul>
+                                    {tabs.map(({ active, text }, index) => (
+                                        <li key={index} className={`${active? `is-active`: ""}`}><a>{text}</a></li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </nav>
                     </div>
                 </div>
-                : null
-            }
-
-            <div className="hero-foot">
-                <nav className="tabs is-centered">
-                    <div className="container">
-                        <ul>
-                            {tabs.map(({ active, text }, index) => (
-                                <li key={index} className={`${active? `is-active`: ""}`}><a>{text}</a></li>
-                            ))}
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-
-        </div>
-        {children}
+                {children}
+            </>
+        }
     </Fragment>
 ))
 

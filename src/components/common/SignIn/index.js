@@ -55,43 +55,35 @@ class SignInFormBase extends Component {
       const isInvalid = password === `` || email === ``
 
       return (
-          <form className="form-page" method="post" onSubmit={this.onSubmit}>
-              <div className="columns is-centered">
-                  <div className="column is-half">
-                      <div className="field">
-                          <label className="label">Email</label>
-                          <div className="control is-expanded">
-                              <input
-                                  name="email"
-                                  value={email}
-                                  onChange={this.onChange}
-                                  className="input is-large" type="text" placeholder="Usuario o email"/>
-                          </div>
+          <form method="post" onSubmit={this.onSubmit}>
+              <div className="login-form animated preFadeInLeft fadeInLeft">
+                  <div className="field">
+                      <div className="control is-expanded">
+                          <input
+                              name="email"
+                              value={email}
+                              onChange={this.onChange}
+                              className="input is-large" type="text" placeholder="Usuario o email" />
                       </div>
                   </div>
-                  <div className="column is-half">
-                      <div className="field">
-                          <label className="label">Contraseña</label>
-                          <div className="control is-expanded">
-                              <input
-                                  name="password"
-                                  value={password}
-                                  onChange={this.onChange}
-                                  type="password"
-                                  className="input is-large" placeholder="Ingresá tu contraseña"/>
-                          </div>
+                  <div className="field">
+                      <div className="control is-expanded">
+                          <input
+                              name="password"
+                              value={password}
+                              onChange={this.onChange}
+                              type="password"
+                              className="input is-large" placeholder="Ingresá tu contraseña" />
                       </div>
-                      <PasswordForgetLink/>
                   </div>
               </div>
-              <div className="columns is-centered">
-                  <div className="column is-one-third">
-                      <div className="field">
-                          <div className="control">
-                              <button disabled={isInvalid} type="submit" className="button is-primary is-outlined is-medium is-fullwidth is-rounded">Iniciar</button>
-                          </div>
-                      </div>
-                  </div>
+              <p className="control login">
+                  <button disabled={isInvalid} type="submit" className="button is-primary is-outlined is-large is-fullwidth is-rounded">Iniciar</button>
+              </p>
+              <div className="section forgot-password animated preFadeInLeft fadeInLeft">
+                  <p className="has-text-centered">
+                      <PasswordForgetLink />
+                  </p>
               </div>
               {error && <p>{error.message}</p>}
           </form>

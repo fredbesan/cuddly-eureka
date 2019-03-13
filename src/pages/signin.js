@@ -9,27 +9,52 @@ import SignInForm, {
 
 import { SignUpLink } from '../components/common/SignUp'
 import hashmeOrgIsoLogo from '../images/hashme-isologo.svg'
+import hashmeOrgLogoGray from '../images/logo-grayscale.svg'
 
 const SignInPage = () => (
-    <Fragment>
-        <div className="is-form-page">
-            <div className="container">
-                <SignInForm />
-                <hr/>
-                <div className="columns has-text-centered">
-                    <div className="column is-one-third">
-                        <SignInGoogle />
+    <div className="login-wrapper columns is-gapless">
+        <div className="column is-7">
+            <div className="hero is-fullheight">
+                <div className="hero-head">
+                    <div className="section has-text-centered">
+                        <a href="/">
+                            <img className="top-logo" src={hashmeOrgLogoGray} alt="Hashme Core Logo"/>
+                        </a>
                     </div>
-                    <div className="column is-one-third">
-                        <SignInFacebook />
+                    <div className="no-account-link has-text-centered">
+                        <a href="/signin">No tienes una cuenta ? </a>
                     </div>
-                    <div className="column is-one-third">
-                        <SignInTwitter />
+                </div>
+                <div className="hero-body">
+                    <div className="container">
+                        <div className="columns">
+                            <div className="column"></div>
+                            <div className="column is-5">
+                                <SignInForm />
+                            </div>
+                            <div className="column"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </Fragment>
+        <div className="column login-column is-5 is-hidden-mobile hero-banner">
+            <div className="hero is-fullheight is-primary is-relative">
+            </div>
+        </div>
+        {/* <SignInForm /> */}
+        {/* <div className="columns has-text-centered">
+            <div className="column is-one-third">
+                <SignInGoogle />
+            </div>
+            <div className="column is-one-third">
+                <SignInFacebook />
+            </div>
+            <div className="column is-one-third">
+                <SignInTwitter />
+            </div>
+        </div> */}
+    </div>
 )
 
 const HeroBody = () => (
@@ -43,7 +68,7 @@ const HeroBody = () => (
 )
 
 export default () => (
-    <Layout heroBody={HeroBody} modifiers={'has-text-centered is-form-page is-small'}>
-        <SignInPage/>
+    <Layout heroBody={HeroBody} clean={true} modifiers={'has-text-centered is-form-page is-small'}>
+        <SignInPage />
     </Layout>
 )
