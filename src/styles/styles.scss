@@ -689,3 +689,12 @@ Button styles
     max-height: 3rem !important;
     height: 42px;
 }
+
+.hero.is-primary .button-signup{
+    color: #fff;
+    border-color: #fff;
+    &:hover{
+        background-color: #fff;
+        color: $primary;
+    }
+}
