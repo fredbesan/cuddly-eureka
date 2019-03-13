@@ -10,8 +10,6 @@ const INITIAL_STATE = {
     error: null,
 }
 
-import { PasswordForgetLink } from '../PasswordForget'
-
 const ERROR_CODE_ACCOUNT_EXISTS =
   `auth/account-exists-with-different-credential`
 
@@ -80,11 +78,6 @@ class SignInFormBase extends Component {
               <p className="control login">
                   <button disabled={isInvalid} type="submit" className="button is-bold is-primary is-outlined is-large is-fullwidth is-rounded">Inicia</button>
               </p>
-              <div className="section forgot-password animated preFadeInLeft fadeInLeft">
-                  <p className="has-text-centered">
-                      <PasswordForgetLink />
-                  </p>
-              </div>
               {error && <p>{error.message}</p>}
           </form>
 

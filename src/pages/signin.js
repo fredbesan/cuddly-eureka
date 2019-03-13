@@ -32,6 +32,16 @@ const SignInPage = () => (
                             <div className="column"></div>
                             <div className="column is-5">
                                 <SignInForm />
+                                <div className="section forgot-password animated preFadeInLeft fadeInLeft">
+                                    <p className="has-text-centered">
+                                        <a href="#">Olvidé mi contraseña</a>
+                                    </p>
+                                </div>
+                                <div className="section forgot-password animated preFadeInLeft fadeInLeft is-hidden">
+                                    <p className="has-text-centered">
+                                        <a href="#">Volver a login</a>
+                                    </p>
+                                </div>
                             </div>
                             <div className="column">
                             </div>
