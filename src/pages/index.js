@@ -77,7 +77,7 @@ const HomePage = compose(
 )(HomePageBase)
 
 export default ({location, data}) => (
-    <Layout heroBody={HomePage} modifiers={`is-fullheight`}>
+    <Layout heroBody={HomePage} modifiers={`is-fullheight is-white is-bold`}>
         <MetaData data={data} location={location} />
     </Layout>
 )
