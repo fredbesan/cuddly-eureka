@@ -1,5 +1,6 @@
 import React from 'react'
 import hashmeOrgLogo from '../../images/logo.svg'
+import hashmeOrgIsoLogoWhite from '../../images/logo-white.svg'
 import hashmeOrgIsoLogo from '../../images/isoLogo.svg'
 import { FaAngleDown } from 'react-icons/fa'
 import '../../styles/styles.scss'
@@ -7,10 +8,10 @@ import { Link } from "gatsby"
 import { AuthUserContext } from '../common/Session'
 import SignOutButton from '../common/SignOut'
 
-const Navbar = () => (
+const Navbar = ({ navColor }) => (
     <AuthUserContext.Consumer>
         {
-            authUser => !authUser ? (<NavigationAuth authUser={authUser} />) : (<NavigationNonAuth />)
+            authUser => !authUser ? (<NavigationAuth navColor={navColor} authUser={authUser} />) : (<NavigationNonAuth />)
         }
     </AuthUserContext.Consumer>
 )
@@ -20,6 +21,8 @@ class NavigationAuth extends React.Component {
         this.state = {
             isActive: false,
         }
+        console.log(this.props);
+        this.logoImg = this.props.navColor == "white" ? hashmeOrgIsoLogoWhite : hashmeOrgLogo
     }
 
     handleClick = () => {
@@ -34,7 +37,7 @@ class NavigationAuth extends React.Component {
                 <div className="container">
                     <div className="navbar-brand">
                         <a className="navbar-item" href="/">
-                            <img className="hashme-logo is-hidden-mobile" width="112" height="24" src={hashmeOrgLogo} alt="Hashme Core Logo"/>
+                            <img className="hashme-logo is-hidden-mobile" width="112" height="24" src={this.logoImg} alt="Hashme Core Logo"/>
                             <img className="hashme-logo is-hidden-desktop is-hidden-tablet" src={hashmeOrgIsoLogo} alt="Hashme Core Logo"/>
                         </a>
                         <a role="button"

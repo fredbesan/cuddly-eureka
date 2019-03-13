@@ -37,11 +37,12 @@ const AppWithAuthentication = withAuthentication((
         tabs,
         modifiers,
         children,
+        navColor,
         ...rest
     }) => (
     <Fragment>
         <div className={`hero ${modifiers}`}>
-            <Navbar />
+            <Navbar navColor={navColor}/>
             {Component ?
                 <div className="hero-body">
                     <div className="container">

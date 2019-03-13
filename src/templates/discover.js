@@ -29,7 +29,7 @@ const Discover = ({ data, location }) => {
             <MetaData
                 data={data}
                 location={location}/>
-            <Layout heroBody={HeroBody} tabs={tabs} modifiers={`is-medium has-text-centered is-primary`}>
+            <Layout heroBody={HeroBody} tabs={tabs} navColor="white" modifiers={`is-medium has-text-centered is-primary`}>
                 <div className="section">
                     <div className="container">
                         <div className="columns is-multiline">
