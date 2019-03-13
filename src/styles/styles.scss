@@ -15,6 +15,12 @@
     font-family: 'Pacifico', cursive;
 }
 
+.navbar-link:not(.is-arrowless)::after {
+    border-color: $primary;
+    margin-top: -0.375em;
+    right: 1.125em;
+}
+
 .is-white .title {
     color: #4e4e53;
     font-weight: 400;

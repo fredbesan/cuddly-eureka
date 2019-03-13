@@ -74,13 +74,42 @@ class NavigationAuth extends React.Component {
                             </a>
                         </div>
                         <div className="navbar-end">
-                            <div className="navbar-item">
-                                <div className="buttons is-centered">
-                                    <a href="/signup" className="button button-signup btn-outlined is-bold btn-align primary-btn rounded">
-                                        <strong>Hola Mundo!</strong>
-                                    </a>
-                                </div>
-                            </div>
+                            {
+                                this.props.authUser ?
+                                    <div className="navbar-item has-dropdown is-hoverable">
+                                        <a className="navbar-link" href="">
+                                            <strong>
+                                                Hola {this.props.authUser.username}!
+                                            </strong>
+                                        </a>
+                                        <div className="navbar-dropdown is-boxed">
+                                            <a className="navbar-item" href="/account">
+                                                Mi cuenta
+                                            </a>
+                                            <a className="navbar-item" href="/account/wallet">
+                                                Mi Billetera
+                                            </a>
+                                            <a className="navbar-item" href="/account/settings">
+                                                Configuración
+                                            </a>
+                                            <hr className="navbar-divider"/>
+                                            <a className="navbar-item" href="/referals">
+                                                Invita
+                                            </a>
+                                            <a className="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
+                                                Salir
+                                            </a>
+                                        </div>
+                                    </div>
+                                    :
+                                    <div className="navbar-item">
+                                        <div className="buttons is-centered">
+                                            <a href="/signup" className="button button-signup btn-outlined is-bold btn-align primary-btn rounded">
+                                                <strong>Hola Mundo!</strong>
+                                            </a>
+                                        </div>
+                                    </div>
+                            }
                         </div>
                     </div>
                 </div>
