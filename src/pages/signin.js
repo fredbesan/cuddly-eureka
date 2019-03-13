@@ -47,7 +47,7 @@ const SignInPage = () => (
                         <h2 className="title is-2 has-text-light has-text-weight-light">Empieza a hoy</h2>
                         <h3 className="subtitle is-6 has-text-light has-text-weight-normal">Únete a la Plataforma Marketing Non-Profit más grande del mundo.</h3>
                         <div className="has-text-centered">
-                            <a className="button is-primary is-inverted is-outlined is-large is-rounded">
+                            <a href="/signup" className="button is-primary is-inverted is-outlined is-large is-rounded">
                                 Regístrate ahora
                             </a>
                         </div>
