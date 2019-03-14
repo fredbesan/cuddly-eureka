@@ -16,12 +16,15 @@ import { MetaData } from '../components/common/meta'
 const Discover = ({ data, location }) => {
     const posts = data.allGhostPost.edges
     const tabs = [
-        { active: true, text: `Todas` },
-        { active: false, text: `Modifiers` },
-        { active: false, text: `Grid` },
-        { active: false, text: `Elements` },
-        { active: false, text: `Components` },
-        { active: false, text: `Layout` },
+        { active: false, text: `Todes` },
+        { active: false, text: `Ecología` },
+        { active: false, text: `Economía` },
+        { active: false, text: `Bienestar` },
+        { active: false, text: `Aprendizaje` },
+        { active: false, text: `Salud` },
+        { active: false, text: `Vida` },
+        { active: false, text: `Mente` },
+        { active: false, text: `Espiritu` },
     ]
 
     return (
