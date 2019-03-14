@@ -16,7 +16,7 @@ import { MetaData } from '../components/common/meta'
 const Motive = ({ data, location }) => {
     const posts = data.allGhostPost.edges
     const tabs = [
-        { active: true, text: `Overview` },
+        { active: true, text: `Todes` },
         { active: false, text: `Modifiers` },
         { active: false, text: `Grid` },
         { active: false, text: `Elements` },

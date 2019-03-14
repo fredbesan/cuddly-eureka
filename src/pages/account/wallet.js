@@ -60,8 +60,8 @@ class HomePageBase extends Component {
                 <div className="columns is-desktop is-vcentered has-text-centered-mobile">
                     <div className="column has-text-centered">
                         <h1 className="title is-1 is-spaced big-title">#MásConMás</h1>
-                        <h6 className="subtitle is-6">Un grupo de personas que comparten la misión de potenciar las causas sociales a traves del marketing.</h6>
-                        <Link to="discover" className="button button-signup btn-outlined is-bold btn-align primary-btn rounded"><strong>Descubrir Causas</strong></Link>
+                        <h6 className="subtitle is-6">#Port Wallet para mover xDAI fácil en un navegador web. Sweep to cold storage when you get home.</h6>
+                        <Link to="discover" className="button button-signup btn-outlined is-bold btn-align primary-btn rounded"><strong>Próximamente</strong></Link>
                     </div>
                     {/* <Messages users={this.state.users} /> */}
                 </div>

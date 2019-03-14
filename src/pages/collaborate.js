@@ -16,7 +16,7 @@ import { MetaData } from '../components/common/meta'
 const Collaborate = ({ data, location }) => {
     const posts = data.allGhostPost.edges
     const tabs = [
-        { active: true, text: `Overview` },
+        { active: true, text: `Todas` },
         { active: false, text: `Modifiers` },
         { active: false, text: `Grid` },
         { active: false, text: `Elements` },
